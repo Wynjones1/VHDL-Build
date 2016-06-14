@@ -1,0 +1,12 @@
+#!/bin/env bash
+set -e
+
+cd {build_dir}
+source {xilinx_source}
+echo "run -ifn {proj_file} -ifmt VHDL -ofn {out_file}\
+ -p {part} -opt_mode {opt_mode} -opt_level {opt_level}" | xst
+ngdbuild -p {part} -uc {ucf} output.ngc
+map -detail -pr b output.ngd
+par -mt {threads} -rl std -w output.ncd parout.ncd output.pcf
+bitgen -w -g StartUpClk:{startup_clk} -g CRC:Enable parout.ncd {bit_file} output.pcf
+djtgcfg -d {device} prog -i 0 -f {bit_file}
