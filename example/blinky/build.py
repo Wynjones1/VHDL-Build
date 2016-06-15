@@ -13,10 +13,14 @@ files = [
     "./top.vhd",
 ]
 
+testbenches = [
+    "./tb.vhd"
+]
+
 proj = Project(
     ucf=ucf,
-    files=files
+    files=files,
+    testbenches=testbenches
 )
 
-proj.generate()
-proj.build()
+proj.start()

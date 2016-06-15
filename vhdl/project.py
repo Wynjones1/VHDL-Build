@@ -4,7 +4,9 @@ import os
 import sys
 import shutil
 import subprocess
+import argparse
 from contextlib import suppress
+from collections import OrderedDict
 
 
 def _mkdir_p(dir):
@@ -12,11 +14,12 @@ def _mkdir_p(dir):
         os.makedirs(dir)
 
 class Project(object):
-    def __init__(self, *, files, ucf):
+    def __init__(self, *, files, ucf, testbenches = None):
         self.files         = files
         self.ucf           = ucf
+        self.testbenches   = testbenches
         self.part          = "xc3s500e-fg320"
-        self.build_dir     = "build"
+        self.build_dir     = "_build"
         self.xilinx_source = "/opt/Xilinx/14.7/ISE_DS/settings64.sh"
         self.proj_file     = "out.proj"
         self.ucf_file      = "out.ucf"
@@ -64,31 +67,84 @@ class Project(object):
             for f in sources:
                 fp.write("{}\n".format(f))
 
-    def _preprocess_source(self):
-        project_dir = split(abspath(sys.argv[0]))[0]
-        source_dir = join(self.build_dir, "src")
-        _mkdir_p(source_dir)
-        out = []
-        for f in self.files:
-            out_name = abspath(join(source_dir, split(f)[1]))
-            in_name  = join(project_dir, f)
-            out.append(out_name)
-            shutil.copyfile(in_name, out_name)
-        return out
+    def _normalise_paths(self):
+        project_dir = split(sys.argv[0])[0]
 
-    def _build_testbench(self, sources):
-        for f in sources:
-            print("Building testbench for {}".format(f))
-            subprocess.call(["ghdl", "-a", f, "-o", join(self.build_dir, "out.cf")])
+        def norm(files):
+            return [abspath(join(project_dir, f)) for f in files]
+
+        self.files       = norm(self.files)
+        self.testbenches = norm(self.testbenches)
+        self.build_dir   = abspath(join(project_dir, self.build_dir))
+
+    def _generate_file_mapping(self):
+        source_dir  = join(self.build_dir, "src")
+        _mkdir_p(source_dir)
+        self.file_mapping = OrderedDict()
+        for f in self.files + self.testbenches:
+            out_name = abspath(join(source_dir, split(f)[1]))
+            self.file_mapping[f] = out_name
+
+    def _preprocess_source(self):
+        for source, dest in self.file_mapping.items():
+            shutil.copyfile(source, dest)
 
     def generate(self):
         _mkdir_p(self.build_dir)
 
         self._output_build_script()
         self._output_ucf()
-        sources = self._preprocess_source()
-        self._build_testbench(sources)
-        self._output_proj(sources)
+        self._output_proj()
+
+
+    def _parse_args(self):
+        parser = argparse.ArgumentParser()
+
+        group = parser.add_mutually_exclusive_group()
+        group.add_argument("--build",     "-b", default=False, action="store_true")
+        group.add_argument("--upload",    "-u", default=False, action="store_true")
+        group.add_argument("--testbench", "-t", default=None, nargs="*")
+
+        parser.add_argument("--clean", "-c", default=False, action="store_true")
+        parser.add_argument("--run", "-r", default=False, action="store_true")
+
+        self.args = parser.parse_args()
 
     def build(self):
         subprocess.call(["bash", join(self.build_dir, "run.sh")])
+
+    def _run_testbench(self):
+        tb_dir = join(self.build_dir, "testbenches")
+        print("Elaborating testbench...")
+        subprocess.Popen(["ghdl", "-e", "tb"], cwd=tb_dir).wait()
+        if self.args.run:
+            print("Running testbench... (press ctrl-c to quit)")
+            vcd_command = ["--vcd={}".format(join(os.getcwd(), "out.vcd"))]
+            subprocess.Popen(["ghdl", "-r", "tb", "--disp-time"] + vcd_command, cwd=tb_dir).wait()
+
+    def _generate_testbench(self):
+        self._preprocess_source()
+        tb_dir = join(self.build_dir, "testbenches")
+        _mkdir_p(tb_dir)
+        for f in self.files + self.testbenches:
+            input_file = self.file_mapping[f]
+            print("Analysing {}...".format(split(f)[1]))
+            subprocess.Popen(["ghdl", "-a", input_file ], cwd=tb_dir).wait()
+
+    def start(self):
+        self._parse_args()
+        self._normalise_paths()
+
+        if self.args.clean:
+            shutil.rmtree(self.build_dir)
+
+        self._generate_file_mapping()
+
+        if self.args.testbench is not None:
+            self._generate_testbench()
+            self._run_testbench()
+        elif self.args.upload:
+            raise NotImplementedError()
+        else:
+            self.generate()
+            self.build()

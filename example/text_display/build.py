@@ -21,9 +21,10 @@ files = [
 
 proj = Project(
     ucf=ucf,
-    files=files
+    files=files,
+    testbench = ["tb.vhd"]
 )
 
 proj.build_dir = "_build"
-proj.generate()
-#proj.build()
+
+proj.start()

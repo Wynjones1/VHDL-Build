@@ -24,7 +24,7 @@ architecture rtl of top is
 begin
 
     gen_1hz_clk : clk_gen
-        generic map (REQUIRED_HZ => 1)
+        generic map (REQUIRED_HZ => CLK_HZ / 2)
         port    map (clk, reset, hz_clk);
 
     combinatoral:
