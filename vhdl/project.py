@@ -76,12 +76,18 @@ class Project(object):
             shutil.copyfile(in_name, out_name)
         return out
 
+    def _build_testbench(self, sources):
+        for f in sources:
+            print("Building testbench for {}".format(f))
+            subprocess.call(["ghdl", "-a", f, "-o", join(self.build_dir, "out.cf")])
+
     def generate(self):
         _mkdir_p(self.build_dir)
 
         self._output_build_script()
         self._output_ucf()
         sources = self._preprocess_source()
+        self._build_testbench(sources)
         self._output_proj(sources)
 
     def build(self):

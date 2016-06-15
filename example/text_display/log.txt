@@ -1,0 +1,949 @@
+. /opt/Xilinx/14.7/ISE_DS/common/.settings64.sh /opt/Xilinx/14.7/ISE_DS/common
+. /opt/Xilinx/14.7/ISE_DS/EDK/.settings64.sh /opt/Xilinx/14.7/ISE_DS/EDK
+. /opt/Xilinx/14.7/ISE_DS/PlanAhead/.settings64.sh /opt/Xilinx/14.7/ISE_DS/PlanAhead
+. /opt/Xilinx/14.7/ISE_DS/ISE/.settings64.sh /opt/Xilinx/14.7/ISE_DS/ISE
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+WARNING:Xst:3152 - You have chosen to run a version of XST which is not the default solution
+   for the specified device family. You are free to use it in order to take
+   advantage of its enhanced HDL parsing/elaboration capabilities. However,
+   please be aware that you may be impacted by  language support differences.
+   This version may also result in circuit performance and device utilization
+   differences for your particular design. You can always revert back to the
+   default XST solution by setting the "use_new_parser" option to value "no" 
+   on the XST command line or in the XST process properties panel.
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "out.proj"
+Input Format                       : VHDL
+
+---- Target Parameters
+Output File Name                   : "output"
+Target Device                      : xc3s500e-fg320
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/clock_gen.vhd" into library work
+Parsing entity <clk_gen>.
+Parsing architecture <rtl> of entity <clk_gen>.
+Parsing VHDL file "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/vga.vhd" into library work
+Parsing entity <vga_counter>.
+Parsing architecture <rtl> of entity <vga_counter>.
+Parsing package <vga_comp>.
+Parsing entity <vga>.
+Parsing architecture <rtl> of entity <vga>.
+Parsing VHDL file "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/text_area.vhd" into library work
+Parsing package <text_display_comp>.
+Parsing package body <text_display_comp>.
+Parsing entity <text_display>.
+Parsing architecture <rtl> of entity <text_display>.
+Parsing VHDL file "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/top.vhd" into library work
+Parsing entity <top>.
+Parsing architecture <rtl> of entity <top>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <top> (architecture <rtl>) from library <work>.
+
+Elaborating entity <text_display> (architecture <rtl>) from library <work>.
+
+Elaborating entity <clk_gen> (architecture <rtl>) with generics from library <work>.
+
+Elaborating entity <vga> (architecture <rtl>) from library <work>.
+
+Elaborating entity <vga_counter> (architecture <rtl>) with generics from library <work>.
+
+Elaborating entity <vga_counter> (architecture <rtl>) with generics from library <work>.
+WARNING:HDLCompiler:92 - "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/text_area.vhd" Line 230: char_s should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/text_area.vhd" Line 232: glyph_s should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/text_area.vhd" Line 239: colour_s should be on the sensitivity list of the process
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <top>.
+    Related source file is "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/top.vhd".
+    Summary:
+	no macro.
+Unit <top> synthesized.
+
+Synthesizing Unit <text_display>.
+    Related source file is "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/text_area.vhd".
+    Found 8-bit register for signal <glyph_s<1>>.
+    Found 8-bit register for signal <glyph_s<2>>.
+    Found 8-bit register for signal <glyph_s<3>>.
+    Found 8-bit register for signal <glyph_s<4>>.
+    Found 8-bit register for signal <glyph_s<5>>.
+    Found 8-bit register for signal <glyph_s<6>>.
+    Found 8-bit register for signal <glyph_s<7>>.
+    Found 7-bit register for signal <char_s>.
+    Found 8-bit register for signal <glyph_s<0>>.
+    Found 9-bit adder for signal <n0055> created at line 228.
+    Found 3-bit subtractor for signal <GND_7_o_GND_7_o_sub_11_OUT<2:0>> created at line 191.
+    Found 128x64-bit Read Only RAM for signal <_n0237>
+    Found 1-bit 8-to-1 multiplexer for signal <GND_7_o_vga_out_s_pix_y[2]_Mux_11_o> created at line 191.
+    Found 1-bit 8-to-1 multiplexer for signal <vga_out_s_pix_y[2]_glyph_s[7][7]_wide_mux_9_OUT<7>> created at line 191.
+    Found 1-bit 8-to-1 multiplexer for signal <vga_out_s_pix_y[2]_glyph_s[7][7]_wide_mux_9_OUT<6>> created at line 191.
+    Found 1-bit 8-to-1 multiplexer for signal <vga_out_s_pix_y[2]_glyph_s[7][7]_wide_mux_9_OUT<5>> created at line 191.
+    Found 1-bit 8-to-1 multiplexer for signal <vga_out_s_pix_y[2]_glyph_s[7][7]_wide_mux_9_OUT<4>> created at line 191.
+    Found 1-bit 8-to-1 multiplexer for signal <vga_out_s_pix_y[2]_glyph_s[7][7]_wide_mux_9_OUT<3>> created at line 191.
+    Found 1-bit 8-to-1 multiplexer for signal <vga_out_s_pix_y[2]_glyph_s[7][7]_wide_mux_9_OUT<2>> created at line 191.
+    Found 1-bit 8-to-1 multiplexer for signal <vga_out_s_pix_y[2]_glyph_s[7][7]_wide_mux_9_OUT<1>> created at line 191.
+    Summary:
+	inferred   1 RAM(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  71 D-type flip-flop(s).
+	inferred  14 Multiplexer(s).
+Unit <text_display> synthesized.
+
+Synthesizing Unit <clk_gen>.
+    Related source file is "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/clock_gen.vhd".
+        CLOCK_SPEED = 50000000
+        REQUIRED_HZ = 25000000
+    Found 1-bit register for signal <clk_s>.
+    Found 1-bit register for signal <count>.
+    Found 1-bit adder for signal <count[0]_PWR_8_o_add_1_OUT<0>> created at line 32.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   2 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <clk_gen> synthesized.
+
+Synthesizing Unit <vga>.
+    Related source file is "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/vga.vhd".
+    Summary:
+	no macro.
+Unit <vga> synthesized.
+
+Synthesizing Unit <vga_counter_1>.
+    Related source file is "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/vga.vhd".
+        FP = 16
+        PW = 96
+        DT = 640
+        BP = 48
+    Found 10-bit register for signal <counter>.
+    Found 1-bit register for signal <sync>.
+    Found 1-bit register for signal <valid>.
+    Found 10-bit adder for signal <counter[9]_GND_10_o_add_7_OUT> created at line 41.
+    Found 10-bit comparator greater for signal <counter[9]_PWR_10_o_LessThan_1_o> created at line 27
+    Found 10-bit comparator greater for signal <counter[9]_PWR_10_o_LessThan_3_o> created at line 31
+    Found 10-bit comparator greater for signal <counter[9]_PWR_10_o_LessThan_5_o> created at line 35
+    Found 10-bit comparator greater for signal <counter[9]_PWR_10_o_LessThan_7_o> created at line 39
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  12 D-type flip-flop(s).
+	inferred   4 Comparator(s).
+	inferred   9 Multiplexer(s).
+Unit <vga_counter_1> synthesized.
+
+Synthesizing Unit <vga_counter_2>.
+    Related source file is "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/vga.vhd".
+        FP = 10
+        PW = 2
+        DT = 480
+        BP = 29
+    Found 10-bit register for signal <counter>.
+    Found 1-bit register for signal <sync>.
+    Found 1-bit register for signal <valid>.
+    Found 10-bit adder for signal <counter[9]_GND_34_o_add_7_OUT> created at line 41.
+    Found 10-bit comparator greater for signal <counter[9]_GND_34_o_LessThan_1_o> created at line 27
+    Found 10-bit comparator greater for signal <counter[9]_GND_34_o_LessThan_3_o> created at line 31
+    Found 10-bit comparator greater for signal <counter[9]_GND_34_o_LessThan_5_o> created at line 35
+    Found 10-bit comparator greater for signal <counter[9]_PWR_11_o_LessThan_7_o> created at line 39
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  12 D-type flip-flop(s).
+	inferred   4 Comparator(s).
+	inferred   9 Multiplexer(s).
+Unit <vga_counter_2> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 128x64-bit single-port Read Only RAM                  : 1
+# Adders/Subtractors                                   : 5
+ 1-bit adder                                           : 1
+ 10-bit adder                                          : 2
+ 3-bit subtractor                                      : 1
+ 9-bit adder                                           : 1
+# Registers                                            : 10
+ 1-bit register                                        : 6
+ 10-bit register                                       : 2
+ 64-bit register                                       : 1
+ 7-bit register                                        : 1
+# Comparators                                          : 8
+ 10-bit comparator greater                             : 8
+# Multiplexers                                         : 33
+ 1-bit 2-to-1 multiplexer                              : 16
+ 1-bit 8-to-1 multiplexer                              : 8
+ 10-bit 2-to-1 multiplexer                             : 8
+ 8-bit 2-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <text_display>.
+INFO:Xst:3226 - The RAM <Mram__n0237> will be implemented as a BLOCK RAM, absorbing the following register(s): <glyph_s<0:0>_glyph_s<1>_glyph_s<2>_glyph_s<3>_glyph_s<4>_glyph_s<5>_glyph_s<6>_glyph_s<7>>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 128-word x 64-bit                   |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     enA            | connected to signal <reset>         | low      |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <char_s>        |          |
+    |     diA            | connected to signal <GND>           |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <text_display> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 128x64-bit single-port block Read Only RAM            : 1
+# Adders/Subtractors                                   : 5
+ 1-bit adder                                           : 1
+ 10-bit adder                                          : 2
+ 3-bit subtractor                                      : 1
+ 7-bit adder                                           : 1
+# Registers                                            : 33
+ Flip-Flops                                            : 33
+# Comparators                                          : 8
+ 10-bit comparator greater                             : 8
+# Multiplexers                                         : 32
+ 1-bit 2-to-1 multiplexer                              : 15
+ 1-bit 8-to-1 multiplexer                              : 8
+ 10-bit 2-to-1 multiplexer                             : 8
+ 8-bit 2-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1293 - FF/Latch <count_0> has a constant value of 0 in block <clk_gen>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <top> ...
+
+Optimizing unit <text_display> ...
+
+Optimizing unit <vga_counter_1> ...
+
+Optimizing unit <vga_counter_2> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 0) on block top, actual ratio is 1.
+FlipFlop text_display_0/vga_0/VS_counter/counter_0 has been replicated 1 time(s)
+FlipFlop text_display_0/vga_0/VS_counter/counter_1 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 34
+ Flip-Flops                                            : 34
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : output.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 141
+#      GND                         : 1
+#      INV                         : 4
+#      LUT2                        : 7
+#      LUT2_D                      : 1
+#      LUT2_L                      : 2
+#      LUT3                        : 43
+#      LUT3_D                      : 3
+#      LUT3_L                      : 2
+#      LUT4                        : 37
+#      LUT4_D                      : 3
+#      LUT4_L                      : 8
+#      MUXF5                       : 21
+#      MUXF6                       : 8
+#      VCC                         : 1
+# FlipFlops/Latches                : 34
+#      FDC                         : 24
+#      FDCE                        : 1
+#      FDE                         : 7
+#      FDP                         : 2
+# RAMS                             : 2
+#      RAMB16_S36                  : 2
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 11
+#      IBUF                        : 1
+#      OBUF                        : 10
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                       77  out of   4656     1%  
+ Number of Slice Flip Flops:             34  out of   9312     0%  
+ Number of 4 input LUTs:                110  out of   9312     1%  
+ Number of IOs:                          12
+ Number of bonded IOBs:                  12  out of    232     5%  
+ Number of BRAMs:                         2  out of     20    10%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+------------------------------------+------------------------------------------------+-------+
+Clock Signal                        | Clock buffer(FF name)                          | Load  |
+------------------------------------+------------------------------------------------+-------+
+clk                                 | BUFGP                                          | 10    |
+text_display_0/clk_gen_0/clk_s      | NONE(text_display_0/vga_0/HS_counter/counter_9)| 12    |
+text_display_0/vga_0/HS_counter/sync| NONE(text_display_0/vga_0/VS_counter/counter_9)| 14    |
+------------------------------------+------------------------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+reset                              | IBUF                   | 27    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 4.454ns (Maximum Frequency: 224.500MHz)
+   Minimum input arrival time before clock: 4.157ns
+   Maximum output required time after clock: 10.711ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 2.587ns (frequency: 386.615MHz)
+  Total number of paths / destination ports: 15 / 15
+-------------------------------------------------------------------------
+Delay:               2.587ns (Levels of Logic = 1)
+  Source:            text_display_0/clk_gen_0/clk_s (FF)
+  Destination:       text_display_0/clk_gen_0/clk_s (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: text_display_0/clk_gen_0/clk_s to text_display_0/clk_gen_0/clk_s
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            13   0.514   0.836  text_display_0/clk_gen_0/clk_s (text_display_0/clk_gen_0/clk_s)
+     INV:I->O              1   0.612   0.357  text_display_0/clk_gen_0/clk_s_INV_4_o1_INV_0 (text_display_0/clk_gen_0/clk_s_INV_4_o)
+     FDCE:D                    0.268          text_display_0/clk_gen_0/clk_s
+    ----------------------------------------
+    Total                      2.587ns (1.394ns logic, 1.193ns route)
+                                       (53.9% logic, 46.1% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'text_display_0/clk_gen_0/clk_s'
+  Clock period: 4.454ns (frequency: 224.500MHz)
+  Total number of paths / destination ports: 139 / 12
+-------------------------------------------------------------------------
+Delay:               4.454ns (Levels of Logic = 3)
+  Source:            text_display_0/vga_0/HS_counter/counter_5 (FF)
+  Destination:       text_display_0/vga_0/HS_counter/counter_1 (FF)
+  Source Clock:      text_display_0/clk_gen_0/clk_s rising
+  Destination Clock: text_display_0/clk_gen_0/clk_s rising
+
+  Data Path: text_display_0/vga_0/HS_counter/counter_5 to text_display_0/vga_0/HS_counter/counter_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             11   0.514   0.945  text_display_0/vga_0/HS_counter/counter_5 (text_display_0/vga_0/HS_counter/counter_5)
+     LUT3_D:I0->O          2   0.612   0.410  text_display_0/vga_0/HS_counter/Mmux_GND_10_o_counter[9]_mux_11_OUT9311 (text_display_0/vga_0/HS_counter/Mmux_GND_10_o_counter[9]_mux_11_OUT1011)
+     LUT3_D:I2->O          3   0.612   0.481  text_display_0/vga_0/HS_counter/Mmux_GND_10_o_counter[9]_mux_11_OUT511 (text_display_0/vga_0/HS_counter/Mmux_GND_10_o_counter[9]_mux_11_OUT51)
+     LUT3:I2->O            1   0.612   0.000  text_display_0/vga_0/HS_counter/Mmux_GND_10_o_counter[9]_mux_11_OUT21 (text_display_0/vga_0/HS_counter/GND_10_o_counter[9]_mux_11_OUT<1>)
+     FDC:D                     0.268          text_display_0/vga_0/HS_counter/counter_1
+    ----------------------------------------
+    Total                      4.454ns (2.618ns logic, 1.836ns route)
+                                       (58.8% logic, 41.2% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'text_display_0/vga_0/HS_counter/sync'
+  Clock period: 4.387ns (frequency: 227.949MHz)
+  Total number of paths / destination ports: 172 / 14
+-------------------------------------------------------------------------
+Delay:               4.387ns (Levels of Logic = 3)
+  Source:            text_display_0/vga_0/VS_counter/counter_5 (FF)
+  Destination:       text_display_0/vga_0/VS_counter/valid (FF)
+  Source Clock:      text_display_0/vga_0/HS_counter/sync rising
+  Destination Clock: text_display_0/vga_0/HS_counter/sync rising
+
+  Data Path: text_display_0/vga_0/VS_counter/counter_5 to text_display_0/vga_0/VS_counter/valid
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             14   0.514   0.880  text_display_0/vga_0/VS_counter/counter_5 (text_display_0/vga_0/VS_counter/counter_5)
+     LUT3:I2->O            1   0.612   0.360  text_display_0/vga_0/VS_counter/Mmux_counter[9]_PWR_11_o_MUX_32_o12_SW0 (N6)
+     LUT4_D:I3->O          4   0.612   0.529  text_display_0/vga_0/VS_counter/Mmux_counter[9]_PWR_11_o_MUX_32_o12 (text_display_0/vga_0/VS_counter/Mmux_counter[9]_PWR_11_o_MUX_32_o12)
+     LUT4:I2->O            1   0.612   0.000  text_display_0/vga_0/VS_counter/Mmux_counter[9]_PWR_11_o_MUX_32_o1 (text_display_0/vga_0/VS_counter/counter[9]_PWR_11_o_MUX_32_o)
+     FDC:D                     0.268          text_display_0/vga_0/VS_counter/valid
+    ----------------------------------------
+    Total                      4.387ns (2.618ns logic, 1.769ns route)
+                                       (59.7% logic, 40.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 9 / 9
+-------------------------------------------------------------------------
+Offset:              4.157ns (Levels of Logic = 2)
+  Source:            reset (PAD)
+  Destination:       text_display_0/Mram__n02372 (RAM)
+  Destination Clock: clk rising
+
+  Data Path: reset to text_display_0/Mram__n02372
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            28   1.106   1.072  reset_IBUF (reset_IBUF)
+     INV:I->O              9   0.612   0.697  text_display_0/reset_inv2_INV_0 (text_display_0/reset_inv)
+     RAMB16_S36:EN             0.670          text_display_0/Mram__n02372
+    ----------------------------------------
+    Total                      4.157ns (2.388ns logic, 1.769ns route)
+                                       (57.4% logic, 42.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'text_display_0/clk_gen_0/clk_s'
+  Total number of paths / destination ports: 25 / 4
+-------------------------------------------------------------------------
+Offset:              7.877ns (Levels of Logic = 5)
+  Source:            text_display_0/vga_0/HS_counter/counter_1 (FF)
+  Destination:       red<2> (PAD)
+  Source Clock:      text_display_0/clk_gen_0/clk_s rising
+
+  Data Path: text_display_0/vga_0/HS_counter/counter_1 to red<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              5   0.514   0.538  text_display_0/vga_0/HS_counter/counter_1 (text_display_0/vga_0/HS_counter/counter_1)
+     INV:I->O              2   0.612   0.380  text_display_0/vga_out_s_pix_x<1>_inv1_INV_0 (text_display_0/vga_out_s_pix_x<1>_inv)
+     MUXF5:S->O            1   0.641   0.000  text_display_0/Mmux_GND_7_o_vga_out_s_pix_y[2]_Mux_11_o_3_f5 (text_display_0/Mmux_GND_7_o_vga_out_s_pix_y[2]_Mux_11_o_3_f5)
+     MUXF6:I1->O           1   0.451   0.509  text_display_0/Mmux_GND_7_o_vga_out_s_pix_y[2]_Mux_11_o_2_f6 (text_display_0/GND_7_o_vga_out_s_pix_y[2]_Mux_11_o)
+     LUT3:I0->O            3   0.612   0.451  text_display_0/output_colour<6>1 (red_0_OBUF)
+     OBUF:I->O                 3.169          red_2_OBUF (red<2>)
+    ----------------------------------------
+    Total                      7.877ns (5.999ns logic, 1.878ns route)
+                                       (76.2% logic, 23.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'text_display_0/vga_0/HS_counter/sync'
+  Total number of paths / destination ports: 160 / 4
+-------------------------------------------------------------------------
+Offset:              9.590ns (Levels of Logic = 8)
+  Source:            text_display_0/vga_0/VS_counter/counter_0 (FF)
+  Destination:       red<2> (PAD)
+  Source Clock:      text_display_0/vga_0/HS_counter/sync rising
+
+  Data Path: text_display_0/vga_0/VS_counter/counter_0 to red<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             37   0.514   1.226  text_display_0/vga_0/VS_counter/counter_0 (text_display_0/vga_0/VS_counter/counter_0)
+     LUT3:I0->O            1   0.612   0.000  text_display_0/Mmux_vga_out_s_pix_y[2]_glyph_s[7][7]_wide_mux_9_OUT<7>_4 (text_display_0/Mmux_vga_out_s_pix_y[2]_glyph_s[7][7]_wide_mux_9_OUT<7>_4)
+     MUXF5:I1->O           1   0.278   0.000  text_display_0/Mmux_vga_out_s_pix_y[2]_glyph_s[7][7]_wide_mux_9_OUT<7>_3_f5 (text_display_0/Mmux_vga_out_s_pix_y[2]_glyph_s[7][7]_wide_mux_9_OUT<7>_3_f5)
+     MUXF6:I1->O           1   0.451   0.426  text_display_0/Mmux_vga_out_s_pix_y[2]_glyph_s[7][7]_wide_mux_9_OUT<7>_2_f6 (text_display_0/vga_out_s_pix_y[2]_glyph_s[7][7]_wide_mux_9_OUT<7>)
+     LUT3:I1->O            1   0.612   0.000  text_display_0/Mmux_GND_7_o_vga_out_s_pix_y[2]_Mux_11_o_4 (text_display_0/Mmux_GND_7_o_vga_out_s_pix_y[2]_Mux_11_o_4)
+     MUXF5:I1->O           1   0.278   0.000  text_display_0/Mmux_GND_7_o_vga_out_s_pix_y[2]_Mux_11_o_3_f5 (text_display_0/Mmux_GND_7_o_vga_out_s_pix_y[2]_Mux_11_o_3_f5)
+     MUXF6:I1->O           1   0.451   0.509  text_display_0/Mmux_GND_7_o_vga_out_s_pix_y[2]_Mux_11_o_2_f6 (text_display_0/GND_7_o_vga_out_s_pix_y[2]_Mux_11_o)
+     LUT3:I0->O            3   0.612   0.451  text_display_0/output_colour<6>1 (red_0_OBUF)
+     OBUF:I->O                 3.169          red_2_OBUF (red<2>)
+    ----------------------------------------
+    Total                      9.590ns (6.977ns logic, 2.613ns route)
+                                       (72.8% logic, 27.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 174 / 3
+-------------------------------------------------------------------------
+Offset:              10.711ns (Levels of Logic = 8)
+  Source:            text_display_0/Mram__n02371 (RAM)
+  Destination:       red<2> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: text_display_0/Mram__n02371 to red<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB16_S36:CLK->DO1    1   2.436   0.426  text_display_0/Mram__n02371 (text_display_0/glyph_s<0:0>_glyph_s<1>_glyph_s<2>_glyph_s<3>_glyph_s<4>_glyph_s<5>_glyph_s<6>_glyph_s<7><1>)
+     LUT3:I1->O            1   0.612   0.000  text_display_0/Mmux_vga_out_s_pix_y[2]_glyph_s[7][7]_wide_mux_9_OUT<1>_6 (text_display_0/Mmux_vga_out_s_pix_y[2]_glyph_s[7][7]_wide_mux_9_OUT<1>_6)
+     MUXF5:I0->O           1   0.278   0.000  text_display_0/Mmux_vga_out_s_pix_y[2]_glyph_s[7][7]_wide_mux_9_OUT<1>_4_f5 (text_display_0/Mmux_vga_out_s_pix_y[2]_glyph_s[7][7]_wide_mux_9_OUT<1>_4_f5)
+     MUXF6:I0->O           1   0.451   0.426  text_display_0/Mmux_vga_out_s_pix_y[2]_glyph_s[7][7]_wide_mux_9_OUT<1>_2_f6 (text_display_0/vga_out_s_pix_y[2]_glyph_s[7][7]_wide_mux_9_OUT<1>)
+     LUT4:I1->O            1   0.612   0.000  text_display_0/Mmux_GND_7_o_vga_out_s_pix_y[2]_Mux_11_o_6 (text_display_0/Mmux_GND_7_o_vga_out_s_pix_y[2]_Mux_11_o_6)
+     MUXF5:I0->O           1   0.278   0.000  text_display_0/Mmux_GND_7_o_vga_out_s_pix_y[2]_Mux_11_o_4_f5 (text_display_0/Mmux_GND_7_o_vga_out_s_pix_y[2]_Mux_11_o_4_f5)
+     MUXF6:I0->O           1   0.451   0.509  text_display_0/Mmux_GND_7_o_vga_out_s_pix_y[2]_Mux_11_o_2_f6 (text_display_0/GND_7_o_vga_out_s_pix_y[2]_Mux_11_o)
+     LUT3:I0->O            3   0.612   0.451  text_display_0/output_colour<6>1 (red_0_OBUF)
+     OBUF:I->O                 3.169          red_2_OBUF (red<2>)
+    ----------------------------------------
+    Total                     10.711ns (8.899ns logic, 1.812ns route)
+                                       (83.1% logic, 16.9% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+------------------------------------+---------+---------+---------+---------+
+                                    | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                        |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+------------------------------------+---------+---------+---------+---------+
+clk                                 |    2.587|         |         |         |
+text_display_0/clk_gen_0/clk_s      |    3.684|         |         |         |
+text_display_0/vga_0/HS_counter/sync|    3.710|         |         |         |
+------------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock text_display_0/clk_gen_0/clk_s
+------------------------------+---------+---------+---------+---------+
+                              | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                  |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+------------------------------+---------+---------+---------+---------+
+text_display_0/clk_gen_0/clk_s|    4.454|         |         |         |
+------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock text_display_0/vga_0/HS_counter/sync
+------------------------------------+---------+---------+---------+---------+
+                                    | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                        |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+------------------------------------+---------+---------+---------+---------+
+text_display_0/vga_0/HS_counter/sync|    4.387|         |         |         |
+------------------------------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 3.16 secs
+ 
+WARNING:Xst:3152 - You have chosen to run a version of XST which is not the default solution
+   for the specified device family. You are free to use it in order to take
+   advantage of its enhanced HDL parsing/elaboration capabilities. However,
+   please be aware that you may be impacted by  language support differences.
+   This version may also result in circuit performance and device utilization
+   differences for your particular design. You can always revert back to the
+   default XST solution by setting the "use_new_parser" option to value "no" 
+   on the XST command line or in the XST process properties panel.
+--> 
+
+
+Total memory usage is 371292 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    6 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+
+Release 14.7 - ngdbuild P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Command Line: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -p
+xc3s500e-fg320 -uc out.ucf output.ngc
+
+Reading NGO file
+"/home/stuart/Programming/VHDL-Build/example/text_display/_build/output.ngc" ...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file "out.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+Done...
+
+Checking expanded design ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   0
+
+Writing NGD file "output.ngd" ...
+Total REAL time to NGDBUILD completion:  2 sec
+Total CPU time to NGDBUILD completion:   1 sec
+
+Writing NGDBUILD log file "output.bld"...
+
+NGDBUILD done.
+Release 14.7 - Map P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Using target part "3s500efg320-5".
+WARNING:Map:34 - Speed grade not specified.  Using default "-5".
+Mapping design into LUTs...
+Writing file output.ngm...
+Running directed packing...
+Running delay-based LUT packing...
+Running related packing...
+Updating timing models...
+Writing design file "output.ncd"...
+
+Design Summary:
+Number of errors:      0
+Number of warnings:    1
+Logic Utilization:
+  Number of Slice Flip Flops:            33 out of   9,312    1%
+  Number of 4 input LUTs:               107 out of   9,312    1%
+Logic Distribution:
+  Number of occupied Slices:             58 out of   4,656    1%
+    Number of Slices containing only related logic:      58 out of      58 100%
+    Number of Slices containing unrelated logic:          0 out of      58   0%
+      *See NOTES below for an explanation of the effects of unrelated logic.
+  Total Number of 4 input LUTs:         107 out of   9,312    1%
+  Number of bonded IOBs:                 12 out of     232    5%
+    IOB Flip Flops:                       1
+  Number of RAMB16s:                      2 out of      20   10%
+  Number of BUFGMUXs:                     1 out of      24    4%
+
+Average Fanout of Non-Clock Nets:                2.89
+
+Peak Memory Usage:  587 MB
+Total REAL time to MAP completion:  1 secs 
+Total CPU time to MAP completion:   1 secs 
+
+NOTES:
+
+   Related logic is defined as being logic that shares connectivity - e.g. two
+   LUTs are "related" if they share common inputs.  When assembling slices,
+   Map gives priority to combine logic that is related.  Doing so results in
+   the best timing performance.
+
+   Unrelated logic shares no connectivity.  Map will only begin packing
+   unrelated logic into a slice once 99% of the slices are occupied through
+   related logic packing.
+
+   Note that once logic distribution reaches the 99% level through related
+   logic packing, this does not mean the device is completely utilized.
+   Unrelated logic packing will then begin, continuing until all usable LUTs
+   and FFs are occupied.  Depending on your timing budget, increased levels of
+   unrelated logic packing may adversely affect the overall timing performance
+   of your design.
+
+Mapping completed.
+See MAP report file "output.mrp" for details.
+Release 14.7 - par P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+
+
+Constraints file: output.pcf.
+Loading device for application Rf_Device from file '3s500e.nph' in environment /opt/Xilinx/14.7/ISE_DS/ISE/.
+   "top" is an NCD, version 3.2, device xc3s500e, package fg320, speed -5
+
+Initializing temperature to 85.000 Celsius. (default - Range: -40.000 to 100.000 Celsius)
+Initializing voltage to 1.140 Volts. (default - Range: 1.140 to 1.320 Volts)
+
+INFO:Par:282 - No user timing constraints were detected or you have set the option to ignore timing constraints ("par
+   -x"). Place and Route will run in "Performance Evaluation Mode" to automatically improve the performance of all
+   internal clocks in this design. Because there are not defined timing requirements, a timing score will not be
+   reported in the PAR report in this mode. The PAR timing summary will list the performance achieved for each clock.
+   Note: For the fastest runtime, set the effort level to "std".  For best performance, set the effort level to "high".
+
+Device speed data version:  "PRODUCTION 1.27 2013-10-13".
+
+
+Design Summary Report:
+
+ Number of External IOBs                          12 out of 232     5%
+
+   Number of External Input IOBs                  2
+
+      Number of External Input IBUFs              2
+        Number of LOCed External Input IBUFs      2 out of 2     100%
+
+
+   Number of External Output IOBs                10
+
+      Number of External Output IOBs             10
+        Number of LOCed External Output IOBs     10 out of 10    100%
+
+
+   Number of External Bidir IOBs                  0
+
+
+   Number of BUFGMUXs                        1 out of 24      4%
+   Number of RAMB16s                         2 out of 20     10%
+   Number of Slices                         58 out of 4656    1%
+      Number of SLICEMs                      0 out of 2328    0%
+
+
+
+Overall effort level (-ol):   Standard 
+Placer effort level (-pl):    High 
+Placer cost table entry (-t): 1
+Router effort level (-rl):    Standard 
+
+WARNING:Par:493 - Multi-threading ("-mt" option) is not supported for this architecture. PAR will use only one
+   processor.
+
+Starting initial Timing Analysis.  REAL time: 1 secs 
+Finished initial Timing Analysis.  REAL time: 1 secs 
+
+
+Starting Placer
+Total REAL time at the beginning of Placer: 1 secs 
+Total CPU  time at the beginning of Placer: 0 secs 
+
+Phase 1.1  Initial Placement Analysis
+Phase 1.1  Initial Placement Analysis (Checksum:f50bf3ce) REAL time: 1 secs 
+
+Phase 2.7  Design Feasibility Check
+Phase 2.7  Design Feasibility Check (Checksum:f50bf3ce) REAL time: 1 secs 
+
+Phase 3.31  Local Placement Optimization
+Phase 3.31  Local Placement Optimization (Checksum:f50bf3ce) REAL time: 1 secs 
+
+Phase 4.2  Initial Clock and IO Placement
+
+Phase 4.2  Initial Clock and IO Placement (Checksum:3c2ddd4e) REAL time: 1 secs 
+
+Phase 5.30  Global Clock Region Assignment
+Phase 5.30  Global Clock Region Assignment (Checksum:3c2ddd4e) REAL time: 1 secs 
+
+Phase 6.36  Local Placement Optimization
+Phase 6.36  Local Placement Optimization (Checksum:3c2ddd4e) REAL time: 1 secs 
+
+Phase 7.8  Global Placement
+.................
+...
+Phase 7.8  Global Placement (Checksum:b05cae4) REAL time: 2 secs 
+
+Phase 8.5  Local Placement Optimization
+Phase 8.5  Local Placement Optimization (Checksum:b05cae4) REAL time: 2 secs 
+
+Phase 9.18  Placement Optimization
+Phase 9.18  Placement Optimization (Checksum:d8c6d3e0) REAL time: 3 secs 
+
+Phase 10.5  Local Placement Optimization
+Phase 10.5  Local Placement Optimization (Checksum:d8c6d3e0) REAL time: 3 secs 
+
+Total REAL time to Placer completion: 3 secs 
+Total CPU  time to Placer completion: 2 secs 
+Writing design to file parout.ncd
+
+
+
+Starting Router
+
+
+Phase  1  : 485 unrouted;      REAL time: 5 secs 
+
+Phase  2  : 458 unrouted;      REAL time: 5 secs 
+
+Phase  3  : 97 unrouted;      REAL time: 5 secs 
+
+Phase  4  : 99 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+
+Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+
+Updating file: parout.ncd with current fully routed design.
+
+Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+
+Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+
+Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+
+Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+
+Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+WARNING:Route:455 - CLK Net:text_display_0/vga_0/HS_counter/sync may have excessive skew because 
+      0 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
+WARNING:Route:455 - CLK Net:text_display_0/clk_gen_0/clk_s may have excessive skew because 
+      4 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
+
+Total REAL time to Router completion: 5 secs 
+Total CPU time to Router completion: 4 secs 
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Generating "PAR" statistics.
+
+**************************
+Generating Clock Report
+**************************
+
++---------------------+--------------+------+------+------------+-------------+
+|        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
++---------------------+--------------+------+------+------------+-------------+
+|           clk_BUFGP | BUFGMUX_X2Y11| No   |    8 |  0.037     |  0.143      |
++---------------------+--------------+------+------+------------+-------------+
+|text_display_0/clk_g |              |      |      |            |             |
+|          en_0/clk_s |         Local|      |   11 |  0.765     |  1.351      |
++---------------------+--------------+------+------+------------+-------------+
+|text_display_0/vga_0 |              |      |      |            |             |
+|    /HS_counter/sync |         Local|      |   13 |  0.540     |  2.244      |
++---------------------+--------------+------+------+------------+-------------+
+
+* Net Skew is the difference between the minimum and maximum routing
+only delays for the net. Note this is different from Clock Skew which
+is reported in TRCE timing report. Clock Skew is the difference between
+the minimum and maximum path delays which includes logic delays.
+
+* The fanout is the number of component pins not the individual BEL loads,
+for example SLICE loads not FF loads.
+
+Timing Score: 0 (Setup: 0, Hold: 0)
+
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+----------------------------------------------------------------------------------------------------------
+  Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
+                                            |             |    Slack   | Achievable | Errors |    Score   
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net clk | SETUP       |         N/A|     2.758ns|     N/A|           0
+  _BUFGP                                    | HOLD        |     1.137ns|            |       0|           0
+                                            | MINLOWPULSE |         N/A|     2.764ns|     N/A|           0
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net tex | SETUP       |         N/A|     4.635ns|     N/A|           0
+  t_display_0/clk_gen_0/clk_s               | HOLD        |     0.429ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net tex | SETUP       |         N/A|     6.610ns|     N/A|           0
+  t_display_0/vga_0/HS_counter/sync         | HOLD        |     1.244ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+
+
+All constraints were met.
+INFO:Timing:2761 - N/A entries in the Constraints List may indicate that the 
+   constraint is not analyzed due to the following: No paths covered by this 
+   constraint; Other constraints intersect with this constraint; or This 
+   constraint was disabled by a Path Tracing Control. Please run the Timespec 
+   Interaction Report (TSI) via command line (trce tsi) or Timing Analyzer GUI.
+
+
+Generating Pad Report.
+
+All signals are completely routed.
+
+Total REAL time to PAR completion: 6 secs 
+Total CPU time to PAR completion: 5 secs 
+
+Peak Memory Usage:  571 MB
+
+Placement: Completed - No errors found.
+Routing: Completed - No errors found.
+
+Number of error messages: 0
+Number of warning messages: 3
+Number of info messages: 1
+
+Writing design to file parout.ncd
+
+
+
+PAR done!
+Release 14.7 - Bitgen P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Loading device for application Rf_Device from file '3s500e.nph' in environment
+/opt/Xilinx/14.7/ISE_DS/ISE/.
+   "top" is an NCD, version 3.2, device xc3s500e, package fg320, speed -5
+Opened constraints file output.pcf.
+
+Wed Jun 15 00:22:44 2016
+
+Running DRC.
+DRC detected 0 errors and 0 warnings.
+Creating bit map...
+Saving bit stream in "out.bit".
+Bitstream generation is complete.
+Programming device. Do not touch your board. This may take a few minutes...
+Programming succeeded.
