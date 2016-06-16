@@ -19,7 +19,10 @@ files = [
     "./top.vhd",
 ]
 
-testbenches = ["tb.vhd"]
+testbenches = [
+   # "./testbenches/tb.vhd"
+    "./testbenches/vga_tb.vhd"
+]
 
 proj = Project(
     ucf=ucf,

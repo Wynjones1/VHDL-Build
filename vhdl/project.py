@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from os.path import dirname, join, split, abspath
+from os.path import dirname, join, split, abspath, relpath
 import os
 import sys
 import shutil
@@ -68,7 +68,7 @@ class Project(object):
                 fp.write("{}\n".format(self.file_mapping[f]))
 
     def _normalise_paths(self):
-        project_dir = split(sys.argv[0])[0]
+        project_dir = self.project_dir = abspath(split(sys.argv[0])[0])
 
         def norm(files):
             return [abspath(join(project_dir, f)) for f in files]
@@ -81,11 +81,13 @@ class Project(object):
         source_dir  = join(self.build_dir, "src")
         self.file_mapping = OrderedDict()
         for f in self.files + self.testbenches:
-            out_name = abspath(join(source_dir, split(f)[1]))
+            rpath = relpath(f, self.project_dir)
+            out_name = abspath(join(source_dir, relpath(f, self.project_dir)))
             self.file_mapping[f] = out_name
 
     def _preprocess_source(self):
         for source, dest in self.file_mapping.items():
+            _mkdir_p(dirname(dest))
             shutil.copyfile(source, dest)
 
     def generate(self):

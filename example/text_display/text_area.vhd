@@ -195,13 +195,22 @@ architecture rtl of text_display is
 
     signal glyph_s      : glyph_t;
     signal char_s       : character_t;
-    signal next_glyph_s : glyph_t;
-    signal next_char_s  : character_t;
+    signal tile_x_s      : integer range 0 to TEXT_WIDTH - 1;
+    signal tile_y_s      : integer range 0 to TEXT_HEIGHT - 1;
+    signal offset_x_s    : integer range 0 to TILE_WIDTH - 1;
+    signal offset_y_s    : integer range 0 to TILE_HEIGHT - 1;
+    signal output_next_s : text_display_out_t;
 
-    signal tile_x_s    : integer range 0 to TEXT_WIDTH - 1;
-    signal tile_y_s    : integer range 0 to TEXT_HEIGHT - 1;
-    signal offset_x_s  : integer range 0 to TILE_WIDTH - 1;
-    signal offset_y_s  : integer range 0 to TILE_HEIGHT - 1;
+
+    constant PRINTABLE_START : natural := 32;
+    constant PRINTABLE_END   : natural := 127;
+    constant PRINTABLE_COUNT : natural := PRINTABLE_END - PRINTABLE_START + 1;
+
+    function printable(index : natural) return natural is
+    begin
+        return PRINTABLE_START + index;
+    end function;
+
 begin
     clk_gen_0:
         clk_gen
@@ -213,37 +222,31 @@ begin
         port map (vga_clk_s, reset, vga_out_s);
 
     comb :
-    process(reset, vga_out_s, char_s, glyph_s, colour_s)
+
+    process(reset, vga_out_s, char_s, glyph_s, colour_s, tile_x_s, tile_y_s, offset_x_s, offset_y_s)
     begin
-        if reset = '1' then
-            tile_x_s   <= 0;
-            tile_y_s   <= 0;
-            offset_x_s <= 0;
-            offset_y_s <= 0;
-        else
-            tile_x_s   <= vga_out_s.pix_x / TILE_WIDTH;
-            tile_y_s   <= vga_out_s.pix_y / TILE_HEIGHT;
-            offset_x_s <= vga_out_s.pix_x mod TILE_WIDTH;
-            offset_y_s <= vga_out_s.pix_y mod TILE_HEIGHT;
-        end if;
+        tile_x_s   <= vga_out_s.pix_x / TILE_WIDTH;
+        tile_y_s   <= vga_out_s.pix_y / TILE_HEIGHT;
+        offset_x_s <= vga_out_s.pix_x mod TILE_WIDTH;
+        offset_y_s <= vga_out_s.pix_y mod TILE_HEIGHT;
 
-        output.hs <= vga_out_s.hs;
-        output.vs <= vga_out_s.vs;
+        output_next_s.hs <= vga_out_s.hs;
+        output_next_s.vs <= vga_out_s.vs;
 
-        next_char_s <= (tile_y_s * TILE_WIDTH + tile_x_s) mod 128;
+        char_s <= printable((tile_y_s * TILE_WIDTH + tile_x_s) mod PRINTABLE_COUNT);
 
-        next_glyph_s <= FONT_ROM(char_s);
+        glyph_s <= FONT_ROM(char_s);
 
         if get_glyph_value(glyph_s, offset_x_s, offset_y_s) = '1' then
-            colour_s <= "11100000";
+            colour_s <= "11111111";
         else
             colour_s <= "00000000";
         end if;
 
         if vga_out_s.en = '1' then
-            output.colour <= colour_s;
+            output_next_s.colour <= colour_s;
         else
-            output.colour <= (others => '0');
+            output_next_s.colour <= (others => '0');
         end if;
     end process;
 
@@ -251,10 +254,8 @@ begin
     process(clk, reset)
     begin
         if reset = '1' then
-            char_s  <= 0;
         elsif rising_edge(clk) then
-            glyph_s <= next_glyph_s;
-            char_s  <= next_char_s;
+            output  <= output_next_s;
         end if;
     end process;
 end rtl;
