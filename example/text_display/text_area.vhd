@@ -153,9 +153,6 @@ package text_display_comp is
 
 end text_display_comp;
 
-package body text_display_comp is
-end text_display_comp;
-
 library IEEE;
 use IEEE.numeric_std.all;
 use IEEE.std_logic_1164.all;
@@ -200,6 +197,11 @@ architecture rtl of text_display is
     signal char_s       : character_t;
     signal next_glyph_s : glyph_t;
     signal next_char_s  : character_t;
+
+    signal tile_x_s    : integer range 0 to TEXT_WIDTH - 1;
+    signal tile_y_s    : integer range 0 to TEXT_HEIGHT - 1;
+    signal offset_x_s  : integer range 0 to TILE_WIDTH - 1;
+    signal offset_y_s  : integer range 0 to TILE_HEIGHT - 1;
 begin
     clk_gen_0:
         clk_gen
@@ -211,25 +213,28 @@ begin
         port map (vga_clk_s, reset, vga_out_s);
 
     comb :
-    process(vga_out_s, char_s, glyph_s, colour_s)
-        variable tile_x    : integer range 0 to TEXT_WIDTH  - 1;
-        variable tile_y    : integer range 0 to TEXT_HEIGHT - 1;
-        variable offset_x  : integer range 0 to TILE_WIDTH - 1;
-        variable offset_y  : integer range 0 to TILE_HEIGHT - 1;
+    process(reset, vga_out_s, char_s, glyph_s, colour_s)
     begin
-        tile_x   := vga_out_s.pix_x / TILE_WIDTH;
-        tile_y   := vga_out_s.pix_y / TILE_HEIGHT;
-        offset_x := vga_out_s.pix_x mod TILE_WIDTH;
-        offset_y := vga_out_s.pix_y mod TILE_HEIGHT;
+        if reset = '1' then
+            tile_x_s   <= 0;
+            tile_y_s   <= 0;
+            offset_x_s <= 0;
+            offset_y_s <= 0;
+        else
+            tile_x_s   <= vga_out_s.pix_x / TILE_WIDTH;
+            tile_y_s   <= vga_out_s.pix_y / TILE_HEIGHT;
+            offset_x_s <= vga_out_s.pix_x mod TILE_WIDTH;
+            offset_y_s <= vga_out_s.pix_y mod TILE_HEIGHT;
+        end if;
 
         output.hs <= vga_out_s.hs;
         output.vs <= vga_out_s.vs;
 
-        next_char_s <= (tile_y * TILE_WIDTH + tile_x) mod 128;
+        next_char_s <= (tile_y_s * TILE_WIDTH + tile_x_s) mod 128;
 
         next_glyph_s <= FONT_ROM(char_s);
 
-        if get_glyph_value(glyph_s, offset_x, offset_y) = '1' then
+        if get_glyph_value(glyph_s, offset_x_s, offset_y_s) = '1' then
             colour_s <= "11100000";
         else
             colour_s <= "00000000";
@@ -246,6 +251,7 @@ begin
     process(clk, reset)
     begin
         if reset = '1' then
+            char_s  <= 0;
         elsif rising_edge(clk) then
             glyph_s <= next_glyph_s;
             char_s  <= next_char_s;

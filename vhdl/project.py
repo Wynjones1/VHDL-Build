@@ -17,7 +17,7 @@ class Project(object):
     def __init__(self, *, files, ucf, testbenches = None):
         self.files         = files
         self.ucf           = ucf
-        self.testbenches   = testbenches
+        self.testbenches   = testbenches if testbenches is not None else []
         self.part          = "xc3s500e-fg320"
         self.build_dir     = "_build"
         self.xilinx_source = "/opt/Xilinx/14.7/ISE_DS/settings64.sh"
@@ -62,10 +62,10 @@ class Project(object):
                     fp.write('NET {} LOC = "{}";\n'.format(key, value))
             fp.write("\n")
 
-    def _output_proj(self, sources):
+    def _output_proj(self):
         with open(join(self.build_dir, self.proj_file), "w") as fp:
-            for f in sources:
-                fp.write("{}\n".format(f))
+            for f in self.files:
+                fp.write("{}\n".format(self.file_mapping[f]))
 
     def _normalise_paths(self):
         project_dir = split(sys.argv[0])[0]
@@ -79,7 +79,6 @@ class Project(object):
 
     def _generate_file_mapping(self):
         source_dir  = join(self.build_dir, "src")
-        _mkdir_p(source_dir)
         self.file_mapping = OrderedDict()
         for f in self.files + self.testbenches:
             out_name = abspath(join(source_dir, split(f)[1]))
@@ -90,8 +89,6 @@ class Project(object):
             shutil.copyfile(source, dest)
 
     def generate(self):
-        _mkdir_p(self.build_dir)
-
         self._output_build_script()
         self._output_ucf()
         self._output_proj()
@@ -107,6 +104,8 @@ class Project(object):
 
         parser.add_argument("--clean", "-c", default=False, action="store_true")
         parser.add_argument("--run", "-r", default=False, action="store_true")
+        parser.add_argument("--end",   "-e", default="100ns")
+        parser.add_argument("--view",   "-v", default=False, action="store_true")
 
         self.args = parser.parse_args()
 
@@ -117,28 +116,36 @@ class Project(object):
         tb_dir = join(self.build_dir, "testbenches")
         print("Elaborating testbench...")
         subprocess.Popen(["ghdl", "-e", "tb"], cwd=tb_dir).wait()
+        wave_file = join(os.getcwd(), "out.ghw")
         if self.args.run:
             print("Running testbench... (press ctrl-c to quit)")
-            vcd_command = ["--vcd={}".format(join(os.getcwd(), "out.vcd"))]
-            subprocess.Popen(["ghdl", "-r", "tb", "--disp-time"] + vcd_command, cwd=tb_dir).wait()
+            wave_command = ["--wave={}".format(wave_file)]
+            time_command = ["--stop-time={}".format(self.args.end)]
+            subprocess.Popen(["ghdl", "-r", "tb"] + wave_command + time_command, cwd=tb_dir).wait()
+
+            if self.args.view:
+                subprocess.Popen(["gtkwave", wave_file], cwd=tb_dir).wait()
 
     def _generate_testbench(self):
-        self._preprocess_source()
         tb_dir = join(self.build_dir, "testbenches")
-        _mkdir_p(tb_dir)
         for f in self.files + self.testbenches:
             input_file = self.file_mapping[f]
             print("Analysing {}...".format(split(f)[1]))
-            subprocess.Popen(["ghdl", "-a", input_file ], cwd=tb_dir).wait()
+            subprocess.Popen(["ghdl", "-a", "-g", "--warn-binding", input_file ], cwd=tb_dir).wait()
+
+    def _make_dirs(self):
+        if self.args.clean:
+            shutil.rmtree(self.build_dir)
+        _mkdir_p(join(self.build_dir))
+        _mkdir_p(join(self.build_dir, "src"))
+        _mkdir_p(join(self.build_dir, "testbenches"))
 
     def start(self):
         self._parse_args()
         self._normalise_paths()
-
-        if self.args.clean:
-            shutil.rmtree(self.build_dir)
-
+        self._make_dirs()
         self._generate_file_mapping()
+        self._preprocess_source()
 
         if self.args.testbench is not None:
             self._generate_testbench()

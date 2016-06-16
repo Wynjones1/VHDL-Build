@@ -90,9 +90,6 @@ Elaborating entity <vga> (architecture <rtl>) from library <work>.
 Elaborating entity <vga_counter> (architecture <rtl>) with generics from library <work>.
 
 Elaborating entity <vga_counter> (architecture <rtl>) with generics from library <work>.
-WARNING:HDLCompiler:92 - "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/text_area.vhd" Line 230: char_s should be on the sensitivity list of the process
-WARNING:HDLCompiler:92 - "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/text_area.vhd" Line 232: glyph_s should be on the sensitivity list of the process
-WARNING:HDLCompiler:92 - "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/text_area.vhd" Line 239: colour_s should be on the sensitivity list of the process
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -339,9 +336,9 @@ Primitive and Black Box Usage:
 #      RAMB16_S36                  : 2
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 11
+# IO Buffers                       : 19
 #      IBUF                        : 1
-#      OBUF                        : 10
+#      OBUF                        : 18
 
 Device utilization summary:
 ---------------------------
@@ -351,8 +348,8 @@ Selected Device : 3s500efg320-5
  Number of Slices:                       77  out of   4656     1%  
  Number of Slice Flip Flops:             34  out of   9312     0%  
  Number of 4 input LUTs:                110  out of   9312     1%  
- Number of IOs:                          12
- Number of bonded IOBs:                  12  out of    232     5%  
+ Number of IOs:                          20
+ Number of bonded IOBs:                  20  out of    232     8%  
  Number of BRAMs:                         2  out of     20    10%  
  Number of GCLKs:                         1  out of     24     4%  
 
@@ -603,8 +600,8 @@ text_display_0/vga_0/HS_counter/sync|    4.387|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 3.16 secs
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 3.32 secs
  
 WARNING:Xst:3152 - You have chosen to run a version of XST which is not the default solution
    for the specified device family. You are free to use it in order to take
@@ -617,10 +614,10 @@ WARNING:Xst:3152 - You have chosen to run a version of XST which is not the defa
 --> 
 
 
-Total memory usage is 371292 kilobytes
+Total memory usage is 371284 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    6 (   0 filtered)
+Number of warnings :    3 (   0 filtered)
 Number of infos    :    2 (   0 filtered)
 
 Release 14.7 - ngdbuild P.20131013 (lin64)
@@ -653,7 +650,7 @@ NGDBUILD Design Results Summary:
   Number of warnings:   0
 
 Writing NGD file "output.ngd" ...
-Total REAL time to NGDBUILD completion:  2 sec
+Total REAL time to NGDBUILD completion:  3 sec
 Total CPU time to NGDBUILD completion:   1 sec
 
 Writing NGDBUILD log file "output.bld"...
@@ -683,7 +680,7 @@ Logic Distribution:
     Number of Slices containing unrelated logic:          0 out of      58   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
   Total Number of 4 input LUTs:         107 out of   9,312    1%
-  Number of bonded IOBs:                 12 out of     232    5%
+  Number of bonded IOBs:                 20 out of     232    8%
     IOB Flip Flops:                       1
   Number of RAMB16s:                      2 out of      20   10%
   Number of BUFGMUXs:                     1 out of      24    4%
@@ -691,7 +688,7 @@ Logic Distribution:
 Average Fanout of Non-Clock Nets:                2.89
 
 Peak Memory Usage:  587 MB
-Total REAL time to MAP completion:  1 secs 
+Total REAL time to MAP completion:  3 secs 
 Total CPU time to MAP completion:   1 secs 
 
 NOTES:
@@ -737,7 +734,7 @@ Device speed data version:  "PRODUCTION 1.27 2013-10-13".
 
 Design Summary Report:
 
- Number of External IOBs                          12 out of 232     5%
+ Number of External IOBs                          20 out of 232     8%
 
    Number of External Input IOBs                  2
 
@@ -745,10 +742,10 @@ Design Summary Report:
         Number of LOCed External Input IBUFs      2 out of 2     100%
 
 
-   Number of External Output IOBs                10
+   Number of External Output IOBs                18
 
-      Number of External Output IOBs             10
-        Number of LOCed External Output IOBs     10 out of 10    100%
+      Number of External Output IOBs             18
+        Number of LOCed External Output IOBs     18 out of 18    100%
 
 
    Number of External Bidir IOBs                  0
@@ -774,43 +771,43 @@ Finished initial Timing Analysis.  REAL time: 1 secs
 
 
 Starting Placer
-Total REAL time at the beginning of Placer: 1 secs 
+Total REAL time at the beginning of Placer: 2 secs 
 Total CPU  time at the beginning of Placer: 0 secs 
 
 Phase 1.1  Initial Placement Analysis
-Phase 1.1  Initial Placement Analysis (Checksum:f50bf3ce) REAL time: 1 secs 
+Phase 1.1  Initial Placement Analysis (Checksum:d4e482bd) REAL time: 2 secs 
 
 Phase 2.7  Design Feasibility Check
-Phase 2.7  Design Feasibility Check (Checksum:f50bf3ce) REAL time: 1 secs 
+Phase 2.7  Design Feasibility Check (Checksum:d4e482bd) REAL time: 2 secs 
 
 Phase 3.31  Local Placement Optimization
-Phase 3.31  Local Placement Optimization (Checksum:f50bf3ce) REAL time: 1 secs 
+Phase 3.31  Local Placement Optimization (Checksum:d4e482bd) REAL time: 2 secs 
 
 Phase 4.2  Initial Clock and IO Placement
 
-Phase 4.2  Initial Clock and IO Placement (Checksum:3c2ddd4e) REAL time: 1 secs 
+Phase 4.2  Initial Clock and IO Placement (Checksum:f9799bbd) REAL time: 2 secs 
 
 Phase 5.30  Global Clock Region Assignment
-Phase 5.30  Global Clock Region Assignment (Checksum:3c2ddd4e) REAL time: 1 secs 
+Phase 5.30  Global Clock Region Assignment (Checksum:f9799bbd) REAL time: 2 secs 
 
 Phase 6.36  Local Placement Optimization
-Phase 6.36  Local Placement Optimization (Checksum:3c2ddd4e) REAL time: 1 secs 
+Phase 6.36  Local Placement Optimization (Checksum:f9799bbd) REAL time: 2 secs 
 
 Phase 7.8  Global Placement
 .................
 ...
-Phase 7.8  Global Placement (Checksum:b05cae4) REAL time: 2 secs 
+Phase 7.8  Global Placement (Checksum:fbc28f21) REAL time: 5 secs 
 
 Phase 8.5  Local Placement Optimization
-Phase 8.5  Local Placement Optimization (Checksum:b05cae4) REAL time: 2 secs 
+Phase 8.5  Local Placement Optimization (Checksum:fbc28f21) REAL time: 5 secs 
 
 Phase 9.18  Placement Optimization
-Phase 9.18  Placement Optimization (Checksum:d8c6d3e0) REAL time: 3 secs 
+Phase 9.18  Placement Optimization (Checksum:164ba9e5) REAL time: 5 secs 
 
 Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:d8c6d3e0) REAL time: 3 secs 
+Phase 10.5  Local Placement Optimization (Checksum:164ba9e5) REAL time: 5 secs 
 
-Total REAL time to Placer completion: 3 secs 
+Total REAL time to Placer completion: 5 secs 
 Total CPU  time to Placer completion: 2 secs 
 Writing design to file parout.ncd
 
@@ -819,34 +816,34 @@ Writing design to file parout.ncd
 Starting Router
 
 
-Phase  1  : 485 unrouted;      REAL time: 5 secs 
+Phase  1  : 493 unrouted;      REAL time: 9 secs 
 
-Phase  2  : 458 unrouted;      REAL time: 5 secs 
+Phase  2  : 453 unrouted;      REAL time: 10 secs 
 
-Phase  3  : 97 unrouted;      REAL time: 5 secs 
+Phase  3  : 107 unrouted;      REAL time: 10 secs 
 
-Phase  4  : 99 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+Phase  4  : 106 unrouted; (Par is working to improve performance)     REAL time: 10 secs 
 
-Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 10 secs 
 
 Updating file: parout.ncd with current fully routed design.
 
-Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 11 secs 
 
-Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 11 secs 
 
-Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 11 secs 
 
-Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 11 secs 
 
-Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 11 secs 
 WARNING:Route:455 - CLK Net:text_display_0/vga_0/HS_counter/sync may have excessive skew because 
       0 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
 WARNING:Route:455 - CLK Net:text_display_0/clk_gen_0/clk_s may have excessive skew because 
-      4 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
+      0 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
 
-Total REAL time to Router completion: 5 secs 
-Total CPU time to Router completion: 4 secs 
+Total REAL time to Router completion: 11 secs 
+Total CPU time to Router completion: 5 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -864,13 +861,13 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|           clk_BUFGP | BUFGMUX_X2Y11| No   |    8 |  0.037     |  0.143      |
-+---------------------+--------------+------+------+------------+-------------+
-|text_display_0/clk_g |              |      |      |            |             |
-|          en_0/clk_s |         Local|      |   11 |  0.765     |  1.351      |
+|           clk_BUFGP | BUFGMUX_X2Y11| No   |    8 |  0.038     |  0.143      |
 +---------------------+--------------+------+------+------------+-------------+
 |text_display_0/vga_0 |              |      |      |            |             |
-|    /HS_counter/sync |         Local|      |   13 |  0.540     |  2.244      |
+|    /HS_counter/sync |         Local|      |   13 |  0.626     |  2.445      |
++---------------------+--------------+------+------+------------+-------------+
+|text_display_0/clk_g |              |      |      |            |             |
+|          en_0/clk_s |         Local|      |   11 |  0.100     |  1.694      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -890,15 +887,15 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP       |         N/A|     2.758ns|     N/A|           0
-  _BUFGP                                    | HOLD        |     1.137ns|            |       0|           0
+  Autotimespec constraint for clock net tex | SETUP       |         N/A|     6.402ns|     N/A|           0
+  t_display_0/vga_0/HS_counter/sync         | HOLD        |     1.238ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net clk | SETUP       |         N/A|     2.698ns|     N/A|           0
+  _BUFGP                                    | HOLD        |     0.901ns|            |       0|           0
                                             | MINLOWPULSE |         N/A|     2.764ns|     N/A|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net tex | SETUP       |         N/A|     4.635ns|     N/A|           0
-  t_display_0/clk_gen_0/clk_s               | HOLD        |     0.429ns|            |       0|           0
-----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net tex | SETUP       |         N/A|     6.610ns|     N/A|           0
-  t_display_0/vga_0/HS_counter/sync         | HOLD        |     1.244ns|            |       0|           0
+  Autotimespec constraint for clock net tex | SETUP       |         N/A|     4.229ns|     N/A|           0
+  t_display_0/clk_gen_0/clk_s               | HOLD        |     1.246ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -914,10 +911,10 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 6 secs 
+Total REAL time to PAR completion: 11 secs 
 Total CPU time to PAR completion: 5 secs 
 
-Peak Memory Usage:  571 MB
+Peak Memory Usage:  570 MB
 
 Placement: Completed - No errors found.
 Routing: Completed - No errors found.
@@ -938,7 +935,7 @@ Loading device for application Rf_Device from file '3s500e.nph' in environment
    "top" is an NCD, version 3.2, device xc3s500e, package fg320, speed -5
 Opened constraints file output.pcf.
 
-Wed Jun 15 00:22:44 2016
+Wed Jun 15 23:44:50 2016
 
 Running DRC.
 DRC detected 0 errors and 0 warnings.

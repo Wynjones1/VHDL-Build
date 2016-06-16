@@ -23,5 +23,4 @@ proj = Project(
     files=files
 )
 
-proj.generate()
-proj.build()
+proj.start()
