@@ -57,6 +57,9 @@ Optimization Effort                : 1
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
+Parsing VHDL file "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/external/sd.vhd" into library work
+Parsing entity <sd_controller>.
+Parsing architecture <rtl> of entity <sd_controller>.
 Parsing VHDL file "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/clock_gen.vhd" into library work
 Parsing entity <clk_gen>.
 Parsing architecture <rtl> of entity <clk_gen>.
@@ -69,6 +72,7 @@ Parsing entity <vga>.
 Parsing architecture <rtl> of entity <vga>.
 Parsing VHDL file "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/text_area.vhd" into library work
 Parsing package <text_display_comp>.
+Parsing package body <text_display_comp>.
 Parsing entity <text_display>.
 Parsing architecture <rtl> of entity <text_display>.
 Parsing VHDL file "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/top.vhd" into library work
@@ -80,6 +84,22 @@ Parsing architecture <rtl> of entity <top>.
 =========================================================================
 
 Elaborating entity <top> (architecture <rtl>) from library <work>.
+WARNING:HDLCompiler:871 - "/home/stuart/Programming/VHDL-Build/example/text_display/_build/src/top.vhd" Line 50: Using initial value
+   ((65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+   65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65
+   ,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,6
+   5,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+   65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,
+   65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65
+   ,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,6
+   5,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+   65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65
+   ,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65
+   ,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,6
+   5,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+   65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65
+   ,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65),(65,65,65,65,65
+   ,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65) for text_ram_s since it is never assigned
 
 Elaborating entity <text_display> (architecture <rtl>) from library <work>.
 
@@ -106,23 +126,13 @@ Synthesizing Unit <text_display>.
     Found 1-bit register for signal <output_hs>.
     Found 1-bit register for signal <output_vs>.
     Found 8-bit register for signal <output_colour>.
-    Found 10-bit adder for signal <n0052> created at line 236.
-    Found 7-bit adder for signal <char_s> created at line 211.
-    Found 3-bit subtractor for signal <GND_7_o_GND_7_o_sub_13_OUT<2:0>> created at line 188.
-    Found 128x56-bit Read Only RAM for signal <_n0269>
-    Found 1-bit 8-to-1 multiplexer for signal <GND_7_o_offset_y_s[2]_Mux_13_o> created at line 188.
-    Found 1-bit 8-to-1 multiplexer for signal <offset_y_s[2]_glyph_s[7][7]_wide_mux_11_OUT<7>> created at line 188.
-    Found 1-bit 8-to-1 multiplexer for signal <offset_y_s[2]_glyph_s[7][7]_wide_mux_11_OUT<6>> created at line 188.
-    Found 1-bit 8-to-1 multiplexer for signal <offset_y_s[2]_glyph_s[7][7]_wide_mux_11_OUT<5>> created at line 188.
-    Found 1-bit 8-to-1 multiplexer for signal <offset_y_s[2]_glyph_s[7][7]_wide_mux_11_OUT<4>> created at line 188.
-    Found 1-bit 8-to-1 multiplexer for signal <offset_y_s[2]_glyph_s[7][7]_wide_mux_11_OUT<3>> created at line 188.
-    Found 1-bit 8-to-1 multiplexer for signal <offset_y_s[2]_glyph_s[7][7]_wide_mux_11_OUT<2>> created at line 188.
-    Found 1-bit 8-to-1 multiplexer for signal <offset_y_s[2]_glyph_s[7][7]_wide_mux_11_OUT<1>> created at line 188.
+    Found 3-bit subtractor for signal <GND_7_o_GND_7_o_sub_91_OUT<2:0>> created at line 206.
+    Found 8x3-bit Read Only RAM for signal <_n5034>
     Summary:
 	inferred   1 RAM(s).
-	inferred   3 Adder/Subtractor(s).
+	inferred   1 Adder/Subtractor(s).
 	inferred  10 D-type flip-flop(s).
-	inferred  13 Multiplexer(s).
+	inferred   5 Multiplexer(s).
 Unit <text_display> synthesized.
 
 Synthesizing Unit <clk_gen>.
@@ -191,74 +201,27 @@ Synthesizing Unit <vga_counter_2>.
 	inferred   3 Multiplexer(s).
 Unit <vga_counter_2> synthesized.
 
-Synthesizing Unit <mod_10u_7u>.
-    Related source file is "".
-    Found 17-bit adder for signal <GND_16_o_b[6]_add_1_OUT> created at line 0.
-    Found 16-bit adder for signal <GND_16_o_b[6]_add_3_OUT> created at line 0.
-    Found 15-bit adder for signal <GND_16_o_b[6]_add_5_OUT> created at line 0.
-    Found 14-bit adder for signal <GND_16_o_b[6]_add_7_OUT> created at line 0.
-    Found 13-bit adder for signal <GND_16_o_b[6]_add_9_OUT> created at line 0.
-    Found 12-bit adder for signal <GND_16_o_b[6]_add_11_OUT> created at line 0.
-    Found 11-bit adder for signal <GND_16_o_b[6]_add_13_OUT> created at line 0.
-    Found 10-bit adder for signal <a[9]_b[6]_add_15_OUT> created at line 0.
-    Found 10-bit adder for signal <a[9]_GND_16_o_add_17_OUT> created at line 0.
-    Found 10-bit adder for signal <a[9]_GND_16_o_add_19_OUT> created at line 0.
-    Found 10-bit adder for signal <a[9]_GND_16_o_add_21_OUT> created at line 0.
-    Found 17-bit comparator lessequal for signal <BUS_0001> created at line 0
-    Found 16-bit comparator lessequal for signal <BUS_0002> created at line 0
-    Found 15-bit comparator lessequal for signal <BUS_0003> created at line 0
-    Found 14-bit comparator lessequal for signal <BUS_0004> created at line 0
-    Found 13-bit comparator lessequal for signal <BUS_0005> created at line 0
-    Found 12-bit comparator lessequal for signal <BUS_0006> created at line 0
-    Found 11-bit comparator lessequal for signal <BUS_0007> created at line 0
-    Found 10-bit comparator lessequal for signal <BUS_0008> created at line 0
-    Found 10-bit comparator lessequal for signal <BUS_0009> created at line 0
-    Found 10-bit comparator lessequal for signal <BUS_0010> created at line 0
-    Found 10-bit comparator lessequal for signal <BUS_0011> created at line 0
-    Summary:
-	inferred  11 Adder/Subtractor(s).
-	inferred  11 Comparator(s).
-	inferred 101 Multiplexer(s).
-Unit <mod_10u_7u> synthesized.
-
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
 # RAMs                                                 : 1
- 128x56-bit single-port Read Only RAM                  : 1
-# Adders/Subtractors                                   : 17
+ 8x3-bit single-port Read Only RAM                     : 1
+# Adders/Subtractors                                   : 4
  1-bit adder                                           : 1
- 10-bit adder                                          : 5
- 11-bit adder                                          : 3
- 12-bit adder                                          : 1
- 13-bit adder                                          : 1
- 14-bit adder                                          : 1
- 15-bit adder                                          : 1
- 16-bit adder                                          : 1
- 17-bit adder                                          : 1
+ 11-bit adder                                          : 2
  3-bit subtractor                                      : 1
- 7-bit adder                                           : 1
 # Registers                                            : 13
  1-bit register                                        : 8
  10-bit register                                       : 4
  8-bit register                                        : 1
-# Comparators                                          : 19
+# Comparators                                          : 8
  10-bit comparator greater                             : 4
- 10-bit comparator lessequal                           : 6
- 11-bit comparator lessequal                           : 1
- 12-bit comparator lessequal                           : 1
- 13-bit comparator lessequal                           : 1
- 14-bit comparator lessequal                           : 1
- 15-bit comparator lessequal                           : 1
- 16-bit comparator lessequal                           : 1
- 17-bit comparator lessequal                           : 1
+ 10-bit comparator lessequal                           : 2
  31-bit comparator greater                             : 2
-# Multiplexers                                         : 123
- 1-bit 2-to-1 multiplexer                              : 110
- 1-bit 8-to-1 multiplexer                              : 8
+# Multiplexers                                         : 14
+ 1-bit 2-to-1 multiplexer                              : 10
  10-bit 2-to-1 multiplexer                             : 3
- 7-bit 2-to-1 multiplexer                              : 1
  9-bit 2-to-1 multiplexer                              : 1
 
 =========================================================================
@@ -269,14 +232,14 @@ Macro Statistics
 
 
 Synthesizing (advanced) Unit <text_display>.
-INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram__n0269> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram__n5034> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
     -----------------------------------------------------------------------
     | ram_type           | Distributed                         |          |
     -----------------------------------------------------------------------
     | Port A                                                              |
-    |     aspect ratio   | 128-word x 56-bit                   |          |
+    |     aspect ratio   | 8-word x 3-bit                      |          |
     |     weA            | connected to signal <GND>           | high     |
-    |     addrA          | connected to signal <char_s>        |          |
+    |     addrA          | connected to signal <vga_out_s_pix_y> |          |
     |     diA            | connected to signal <GND>           |          |
     |     doA            | connected to internal node          |          |
     -----------------------------------------------------------------------
@@ -295,33 +258,22 @@ Advanced HDL Synthesis Report
 
 Macro Statistics
 # RAMs                                                 : 1
- 128x56-bit single-port distributed Read Only RAM      : 1
-# Adders/Subtractors                                   : 15
+ 8x3-bit single-port distributed Read Only RAM         : 1
+# Adders/Subtractors                                   : 2
  1-bit adder                                           : 1
- 10-bit adder                                          : 11
  3-bit subtractor                                      : 1
- 7-bit adder                                           : 2
 # Counters                                             : 2
  10-bit modulo-521 up counter                          : 1
  10-bit modulo-800 up counter                          : 1
 # Registers                                            : 36
  Flip-Flops                                            : 36
-# Comparators                                          : 19
+# Comparators                                          : 8
  10-bit comparator greater                             : 4
- 10-bit comparator lessequal                           : 6
- 11-bit comparator lessequal                           : 1
- 12-bit comparator lessequal                           : 1
- 13-bit comparator lessequal                           : 1
- 14-bit comparator lessequal                           : 1
- 15-bit comparator lessequal                           : 1
- 16-bit comparator lessequal                           : 1
- 17-bit comparator lessequal                           : 1
+ 10-bit comparator lessequal                           : 2
  31-bit comparator greater                             : 2
-# Multiplexers                                         : 119
- 1-bit 2-to-1 multiplexer                              : 108
- 1-bit 8-to-1 multiplexer                              : 8
+# Multiplexers                                         : 10
+ 1-bit 2-to-1 multiplexer                              : 8
  10-bit 2-to-1 multiplexer                             : 1
- 7-bit 2-to-1 multiplexer                              : 1
  9-bit 2-to-1 multiplexer                              : 1
 
 =========================================================================
@@ -339,10 +291,16 @@ Optimizing unit <text_display> ...
 Optimizing unit <vga_counter_1> ...
 
 Optimizing unit <vga_counter_2> ...
+WARNING:Xst:2677 - Node <text_display_0/vga_0/HS_counter/output_pix_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <text_display_0/vga_0/HS_counter/output_pix_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <text_display_0/vga_0/HS_counter/output_pix_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <text_display_0/vga_0/HS_counter/output_pix_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <text_display_0/vga_0/VS_counter/output_pix_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <text_display_0/vga_0/VS_counter/output_pix_3> of sequential type is unconnected in block <top>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block top, actual ratio is 10.
+Found area constraint ratio of 100 (+ 0) on block top, actual ratio is 1.
 FlipFlop text_display_0/output_colour_0 has been replicated 7 time(s) to handle iob=true attribute.
 
 Final Macro Processing ...
@@ -351,8 +309,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 55
- Flip-Flops                                            : 55
+# Registers                                            : 49
+ Flip-Flops                                            : 49
 
 =========================================================================
 
@@ -375,30 +333,29 @@ Top Level Output File Name         : output.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 847
+# BELS                             : 131
 #      GND                         : 1
-#      INV                         : 7
+#      INV                         : 6
 #      LUT1                        : 20
-#      LUT2                        : 44
+#      LUT2                        : 21
 #      LUT2_L                      : 1
-#      LUT3                        : 119
+#      LUT3                        : 6
 #      LUT3_L                      : 1
-#      LUT4                        : 483
+#      LUT4                        : 14
 #      LUT4_D                      : 2
 #      LUT4_L                      : 1
 #      MUXCY                       : 34
-#      MUXF5                       : 105
-#      MUXF6                       : 8
+#      MUXF5                       : 3
 #      VCC                         : 1
 #      XORCY                       : 20
-# FlipFlops/Latches                : 55
-#      FDC                         : 40
+# FlipFlops/Latches                : 49
+#      FDC                         : 34
 #      FDCE                        : 1
 #      FDE                         : 2
 #      FDP                         : 4
 #      FDRSE                       : 8
-# Clock Buffers                    : 3
-#      BUFG                        : 2
+# Clock Buffers                    : 2
+#      BUFG                        : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 11
 #      IBUF                        : 1
@@ -409,13 +366,13 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-5 
 
- Number of Slices:                      446  out of   4656     9%  
- Number of Slice Flip Flops:             45  out of   9312     0%  
- Number of 4 input LUTs:                678  out of   9312     7%  
+ Number of Slices:                       47  out of   4656     1%  
+ Number of Slice Flip Flops:             39  out of   9312     0%  
+ Number of 4 input LUTs:                 72  out of   9312     0%  
  Number of IOs:                          12
  Number of bonded IOBs:                  12  out of    232     5%  
     IOB Flip Flops:                      10
- Number of GCLKs:                         3  out of     24    12%  
+ Number of GCLKs:                         2  out of     24     8%  
 
 ---------------------------
 Partition Resource Summary:
@@ -435,20 +392,21 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
--------------------------------------------+------------------------+-------+
-Clock Signal                               | Clock buffer(FF name)  | Load  |
--------------------------------------------+------------------------+-------+
-clk                                        | BUFGP                  | 11    |
-text_display_0/clk_gen_0/clk_s             | BUFG                   | 22    |
-text_display_0/vga_0/HS_counter/output_sync| BUFG                   | 22    |
--------------------------------------------+------------------------+-------+
+-------------------------------------------+--------------------------------------------------+-------+
+Clock Signal                               | Clock buffer(FF name)                            | Load  |
+-------------------------------------------+--------------------------------------------------+-------+
+clk                                        | BUFGP                                            | 11    |
+text_display_0/clk_gen_0/clk_s             | NONE(text_display_0/vga_0/HS_counter/counter_s_9)| 18    |
+text_display_0/vga_0/HS_counter/output_sync| BUFG                                             | 20    |
+-------------------------------------------+--------------------------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
 ----------------------------------------
 -----------------------------------+------------------------+-------+
 Control Signal                     | Buffer(FF name)        | Load  |
 -----------------------------------+------------------------+-------+
-reset                              | IBUF                   | 45    |
+reset                              | IBUF                   | 39    |
 -----------------------------------+------------------------+-------+
 
 Timing Summary:
@@ -456,7 +414,7 @@ Timing Summary:
 Speed Grade: -5
 
    Minimum period: 4.578ns (Maximum Frequency: 218.438MHz)
-   Minimum input arrival time before clock: 4.386ns
+   Minimum input arrival time before clock: 4.662ns
    Maximum output required time after clock: 4.040ns
    Maximum combinational path delay: No path found
 
@@ -466,10 +424,10 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 2.131ns (frequency: 469.274MHz)
+  Clock period: 2.673ns (frequency: 374.076MHz)
   Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Delay:               2.131ns (Levels of Logic = 1)
+Delay:               2.673ns (Levels of Logic = 1)
   Source:            text_display_0/clk_gen_0/clk_s (FF)
   Destination:       text_display_0/clk_gen_0/clk_s (FF)
   Source Clock:      clk rising
@@ -479,17 +437,17 @@ Delay:               2.131ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             2   0.514   0.380  text_display_0/clk_gen_0/clk_s (text_display_0/clk_gen_0/clk_s)
+     FDCE:C->Q            19   0.514   0.922  text_display_0/clk_gen_0/clk_s (text_display_0/clk_gen_0/clk_s)
      INV:I->O              1   0.612   0.357  text_display_0/clk_gen_0/clk_s_INV_4_o1_INV_0 (text_display_0/clk_gen_0/clk_s_INV_4_o)
      FDCE:D                    0.268          text_display_0/clk_gen_0/clk_s
     ----------------------------------------
-    Total                      2.131ns (1.394ns logic, 0.737ns route)
-                                       (65.4% logic, 34.6% route)
+    Total                      2.673ns (1.394ns logic, 1.279ns route)
+                                       (52.1% logic, 47.9% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'text_display_0/clk_gen_0/clk_s'
   Clock period: 4.499ns (frequency: 222.279MHz)
-  Total number of paths / destination ports: 174 / 22
+  Total number of paths / destination ports: 170 / 18
 -------------------------------------------------------------------------
 Delay:               4.499ns (Levels of Logic = 11)
   Source:            text_display_0/vga_0/HS_counter/counter_s_1 (FF)
@@ -521,7 +479,7 @@ Delay:               4.499ns (Levels of Logic = 11)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'text_display_0/vga_0/HS_counter/output_sync'
   Clock period: 4.578ns (frequency: 218.438MHz)
-  Total number of paths / destination ports: 179 / 22
+  Total number of paths / destination ports: 177 / 20
 -------------------------------------------------------------------------
 Delay:               4.578ns (Levels of Logic = 10)
   Source:            text_display_0/vga_0/VS_counter/counter_s_1 (FF)
@@ -551,9 +509,9 @@ Delay:               4.578ns (Levels of Logic = 10)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 26 / 26
+  Total number of paths / destination ports: 34 / 26
 -------------------------------------------------------------------------
-Offset:              4.386ns (Levels of Logic = 2)
+Offset:              4.662ns (Levels of Logic = 3)
   Source:            reset (PAD)
   Destination:       text_display_0/output_colour_0 (FF)
   Destination Clock: clk rising
@@ -562,12 +520,13 @@ Offset:              4.386ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            48   1.106   1.229  reset_IBUF (reset_IBUF)
-     LUT3:I0->O            8   0.612   0.643  text_display_0/_n01351 (text_display_0/_n0135)
-     FDRSE:R                   0.795          text_display_0/output_colour_0
+     IBUF:I->O            43   1.106   1.228  reset_IBUF (reset_IBUF)
+     LUT3:I0->O            1   0.612   0.000  text_display_0/_n50221551 (text_display_0/_n50221551)
+     MUXF5:I1->O           8   0.278   0.643  text_display_0/_n5022155_f5 (text_display_0/_n5022155)
+     FDRSE:S                   0.795          text_display_0/output_colour_0
     ----------------------------------------
-    Total                      4.386ns (2.513ns logic, 1.873ns route)
-                                       (57.3% logic, 42.7% route)
+    Total                      4.662ns (2.791ns logic, 1.871ns route)
+                                       (59.9% logic, 40.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
@@ -598,9 +557,9 @@ Clock to Setup on destination clock clk
                                            | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                               |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------------------+---------+---------+---------+---------+
-clk                                        |    2.131|         |         |         |
-text_display_0/clk_gen_0/clk_s             |   23.184|         |         |         |
-text_display_0/vga_0/HS_counter/output_sync|   23.089|         |         |         |
+clk                                        |    2.673|         |         |         |
+text_display_0/clk_gen_0/clk_s             |    7.877|         |         |         |
+text_display_0/vga_0/HS_counter/output_sync|    7.903|         |         |         |
 -------------------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock text_display_0/clk_gen_0/clk_s
@@ -622,8 +581,8 @@ text_display_0/vga_0/HS_counter/output_sync|    4.578|         |         |      
 =========================================================================
 
 
-Total REAL time to Xst completion: 10.00 secs
-Total CPU time to Xst completion: 6.74 secs
+Total REAL time to Xst completion: 20.00 secs
+Total CPU time to Xst completion: 17.04 secs
  
 WARNING:Xst:3152 - You have chosen to run a version of XST which is not the default solution
    for the specified device family. You are free to use it in order to take
@@ -636,11 +595,11 @@ WARNING:Xst:3152 - You have chosen to run a version of XST which is not the defa
 --> 
 
 
-Total memory usage is 374608 kilobytes
+Total memory usage is 584296 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    5 (   0 filtered)
-Number of infos    :    2 (   0 filtered)
+Number of warnings :   12 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
 
 Release 14.7 - ngdbuild P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
@@ -685,12 +644,6 @@ WARNING:Map:34 - Speed grade not specified.  Using default "-5".
 Mapping design into LUTs...
 Writing file output.ngm...
 Running directed packing...
-WARNING:Pack:266 - The function generator text_display_0/Madd_n0052_lut<3>1
-   failed to merge with F5 multiplexer text_display_0/Mram__n0269105_f5.  There
-   is a conflict for the FXMUX.  The design will exhibit suboptimal timing.
-WARNING:Pack:266 - The function generator text_display_0/Madd_n0052_lut<3>1
-   failed to merge with F5 multiplexer text_display_0/Mram__n0269146_f5.  There
-   is a conflict for the FXMUX.  The design will exhibit suboptimal timing.
 Running delay-based LUT packing...
 Running related packing...
 Updating timing models...
@@ -698,30 +651,30 @@ Writing design file "output.ncd"...
 
 Design Summary:
 Number of errors:      0
-Number of warnings:    3
+Number of warnings:    1
 Logic Utilization:
-  Number of Slice Flip Flops:            45 out of   9,312    1%
-  Number of 4 input LUTs:               658 out of   9,312    7%
+  Number of Slice Flip Flops:            39 out of   9,312    1%
+  Number of 4 input LUTs:                51 out of   9,312    1%
 Logic Distribution:
-  Number of occupied Slices:            398 out of   4,656    8%
-    Number of Slices containing only related logic:     398 out of     398 100%
-    Number of Slices containing unrelated logic:          0 out of     398   0%
+  Number of occupied Slices:             47 out of   4,656    1%
+    Number of Slices containing only related logic:      47 out of      47 100%
+    Number of Slices containing unrelated logic:          0 out of      47   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:         683 out of   9,312    7%
-    Number used as logic:               658
-    Number used as a route-thru:         25
+  Total Number of 4 input LUTs:          71 out of   9,312    1%
+    Number used as logic:                51
+    Number used as a route-thru:         20
 
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
 
   Number of bonded IOBs:                 12 out of     232    5%
     IOB Flip Flops:                      10
-  Number of BUFGMUXs:                     3 out of      24   12%
+  Number of BUFGMUXs:                     2 out of      24    8%
 
-Average Fanout of Non-Clock Nets:                4.31
+Average Fanout of Non-Clock Nets:                2.65
 
-Peak Memory Usage:  590 MB
-Total REAL time to MAP completion:  2 secs 
+Peak Memory Usage:  586 MB
+Total REAL time to MAP completion:  1 secs 
 Total CPU time to MAP completion:   1 secs 
 
 NOTES:
@@ -784,8 +737,8 @@ Design Summary Report:
    Number of External Bidir IOBs                  0
 
 
-   Number of BUFGMUXs                        3 out of 24     12%
-   Number of Slices                        398 out of 4656    8%
+   Number of BUFGMUXs                        2 out of 24      8%
+   Number of Slices                         47 out of 4656    1%
       Number of SLICEMs                      0 out of 2328    0%
 
 
@@ -807,37 +760,37 @@ Total REAL time at the beginning of Placer: 1 secs
 Total CPU  time at the beginning of Placer: 0 secs 
 
 Phase 1.1  Initial Placement Analysis
-Phase 1.1  Initial Placement Analysis (Checksum:ca119e9) REAL time: 1 secs 
+Phase 1.1  Initial Placement Analysis (Checksum:96303ade) REAL time: 1 secs 
 
 Phase 2.7  Design Feasibility Check
-Phase 2.7  Design Feasibility Check (Checksum:ca119e9) REAL time: 1 secs 
+Phase 2.7  Design Feasibility Check (Checksum:96303ade) REAL time: 1 secs 
 
 Phase 3.31  Local Placement Optimization
-Phase 3.31  Local Placement Optimization (Checksum:ca119e9) REAL time: 1 secs 
+Phase 3.31  Local Placement Optimization (Checksum:96303ade) REAL time: 1 secs 
 
 Phase 4.2  Initial Clock and IO Placement
 
-Phase 4.2  Initial Clock and IO Placement (Checksum:8c6652cc) REAL time: 1 secs 
+Phase 4.2  Initial Clock and IO Placement (Checksum:c9f09076) REAL time: 1 secs 
 
 Phase 5.30  Global Clock Region Assignment
-Phase 5.30  Global Clock Region Assignment (Checksum:8c6652cc) REAL time: 1 secs 
+Phase 5.30  Global Clock Region Assignment (Checksum:c9f09076) REAL time: 1 secs 
 
 Phase 6.36  Local Placement Optimization
-Phase 6.36  Local Placement Optimization (Checksum:8c6652cc) REAL time: 1 secs 
+Phase 6.36  Local Placement Optimization (Checksum:c9f09076) REAL time: 1 secs 
 
 Phase 7.8  Global Placement
-............
-................................
-Phase 7.8  Global Placement (Checksum:4490614c) REAL time: 3 secs 
+..
+..
+Phase 7.8  Global Placement (Checksum:c49d33ef) REAL time: 3 secs 
 
 Phase 8.5  Local Placement Optimization
-Phase 8.5  Local Placement Optimization (Checksum:4490614c) REAL time: 3 secs 
+Phase 8.5  Local Placement Optimization (Checksum:c49d33ef) REAL time: 3 secs 
 
 Phase 9.18  Placement Optimization
-Phase 9.18  Placement Optimization (Checksum:6f0c6e5a) REAL time: 3 secs 
+Phase 9.18  Placement Optimization (Checksum:b0b27640) REAL time: 3 secs 
 
 Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:6f0c6e5a) REAL time: 3 secs 
+Phase 10.5  Local Placement Optimization (Checksum:b0b27640) REAL time: 3 secs 
 
 Total REAL time to Placer completion: 3 secs 
 Total CPU  time to Placer completion: 2 secs 
@@ -848,29 +801,33 @@ Writing design to file parout.ncd
 Starting Router
 
 
-Phase  1  : 2676 unrouted;      REAL time: 6 secs 
+Phase  1  : 286 unrouted;      REAL time: 5 secs 
 
-Phase  2  : 2631 unrouted;      REAL time: 6 secs 
+Phase  2  : 249 unrouted;      REAL time: 5 secs 
 
-Phase  3  : 746 unrouted;      REAL time: 6 secs 
+Phase  3  : 22 unrouted;      REAL time: 5 secs 
 
-Phase  4  : 748 unrouted; (Par is working to improve performance)     REAL time: 7 secs 
+Phase  4  : 26 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
 
-Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 7 secs 
+Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
 
 Updating file: parout.ncd with current fully routed design.
 
-Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 7 secs 
+Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
-Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 7 secs 
+Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
-Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 7 secs 
+Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
-Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 7 secs 
+Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
-Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 7 secs 
+Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
-Total REAL time to Router completion: 7 secs 
+Phase 11  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
+WARNING:Route:455 - CLK Net:text_display_0/clk_gen_0/clk_s may have excessive skew because 
+      0 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
+
+Total REAL time to Router completion: 6 secs 
 Total CPU time to Router completion: 5 secs 
 
 Partition Implementation Status
@@ -893,10 +850,10 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |text_display_0/vga_0 |              |      |      |            |             |
 |/HS_counter/output_s |              |      |      |            |             |
-|            ync_BUFG |  BUFGMUX_X1Y0| No   |   13 |  0.019     |  0.150      |
+|            ync_BUFG | BUFGMUX_X1Y10| No   |   12 |  0.007     |  0.143      |
 +---------------------+--------------+------+------+------------+-------------+
 |text_display_0/clk_g |              |      |      |            |             |
-|     en_0/clk_s_BUFG | BUFGMUX_X1Y10| No   |   13 |  0.008     |  0.138      |
+|          en_0/clk_s |         Local|      |   12 |  0.008     |  1.393      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -916,16 +873,16 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP       |         N/A|     1.395ns|     N/A|           0
-  _BUFGP                                    | HOLD        |     0.982ns|            |       0|           0
+  Autotimespec constraint for clock net clk | SETUP       |         N/A|     1.358ns|     N/A|           0
+  _BUFGP                                    | HOLD        |     0.952ns|            |       0|           0
                                             | MINLOWPULSE |         N/A|     1.438ns|     N/A|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net tex | SETUP       |         N/A|     4.551ns|     N/A|           0
-  t_display_0/vga_0/HS_counter/output_sync_ | HOLD        |     1.207ns|            |       0|           0
+  Autotimespec constraint for clock net tex | SETUP       |         N/A|     4.539ns|     N/A|           0
+  t_display_0/vga_0/HS_counter/output_sync_ | HOLD        |     0.885ns|            |       0|           0
   BUFG                                      |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net tex | SETUP       |         N/A|     4.399ns|     N/A|           0
-  t_display_0/clk_gen_0/clk_s_BUFG          | HOLD        |     0.882ns|            |       0|           0
+  Autotimespec constraint for clock net tex | SETUP       |         N/A|     4.355ns|     N/A|           0
+  t_display_0/clk_gen_0/clk_s               | HOLD        |     0.913ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -941,16 +898,16 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 8 secs 
+Total REAL time to PAR completion: 6 secs 
 Total CPU time to PAR completion: 5 secs 
 
-Peak Memory Usage:  574 MB
+Peak Memory Usage:  570 MB
 
 Placement: Completed - No errors found.
 Routing: Completed - No errors found.
 
 Number of error messages: 0
-Number of warning messages: 1
+Number of warning messages: 2
 Number of info messages: 1
 
 Writing design to file parout.ncd
@@ -965,7 +922,7 @@ Loading device for application Rf_Device from file '3s500e.nph' in environment
    "top" is an NCD, version 3.2, device xc3s500e, package fg320, speed -5
 Opened constraints file output.pcf.
 
-Thu Jun 16 22:08:20 2016
+Fri Jun 17 00:04:41 2016
 
 Running DRC.
 DRC detected 0 errors and 0 warnings.

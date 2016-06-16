@@ -3,16 +3,21 @@ use IEEE.numeric_std.all;
 use IEEE.std_logic_1164.all;
 
 package text_display_comp is
-    constant TEXT_WIDTH  : integer := 80;
-    constant TEXT_HEIGHT : integer := 60;
-    constant TILE_WIDTH  : integer := 8;
-    constant TILE_HEIGHT : integer := 8;
+    constant TEXT_WIDTH      : natural := 80;
+    constant TEXT_HEIGHT     : natural := 60;
+    constant TILE_WIDTH      : natural := 8;
+    constant TILE_HEIGHT     : natural := 8;
+    constant PRINTABLE_START : natural := 32;
+    constant PRINTABLE_END   : natural := 127;
+    constant PRINTABLE_COUNT : natural := PRINTABLE_END - PRINTABLE_START + 1;
 
-    subtype character_t is integer range 0 to 127;
-    type    glyph_t     is array (0 to 7)               of std_logic_vector(7 downto 0);
-    type    glyph_rom_t is array (0 to 127)             of glyph_t;
+    function printable(index : natural) return natural;
+
+    subtype character_t is natural range PRINTABLE_START to PRINTABLE_END;
     type    line_t      is array (0 to TEXT_WIDTH  - 1) of character_t;
     type    text_ram_t  is array (0 to TEXT_HEIGHT - 1) of line_t;
+    type    glyph_t     is array (0 to 7)               of std_logic_vector(7 downto 0);
+    type    glyph_rom_t is array (0 to 127)             of glyph_t;
 
     constant FONT_ROM : glyph_rom_t := (
         ("00000000","00000000","00000000","00000000","00000000","00000000","00000000","00000000"),
@@ -144,6 +149,14 @@ package text_display_comp is
         ("01110110","11011100","00000000","00000000","00000000","00000000","00000000","00000000"),
         ("00000000","00000000","00000000","00000000","00000000","00000000","00000000","00000000"));
 
+    type text_display_in_t is
+        record
+            wx : natural range 0 to TEXT_WIDTH - 1;
+            wy : natural range 0 to TEXT_WIDTH - 1;
+            we : std_logic;
+            wd : character_t;
+        end record;
+
     type text_display_out_t is
         record
             colour : std_logic_vector(7 downto 0);
@@ -152,6 +165,13 @@ package text_display_comp is
         end record;
 
 end text_display_comp;
+
+package body text_display_comp is
+    function printable(index : natural) return natural is
+    begin
+        return PRINTABLE_START + index;
+    end function;
+end package body;
 
 library IEEE;
 use IEEE.numeric_std.all;
@@ -162,6 +182,7 @@ use work.vga_comp.all;
 entity text_display is
     port( clk    : in  std_logic;
           reset  : in  std_logic;
+          input  : in  text_display_in_t;
           output : out text_display_out_t);
 end;
 
@@ -200,17 +221,7 @@ architecture rtl of text_display is
     signal offset_x_s    : integer range 0 to TILE_WIDTH - 1;
     signal offset_y_s    : integer range 0 to TILE_HEIGHT - 1;
     signal output_next_s : text_display_out_t;
-
-
-    constant PRINTABLE_START : natural := 32;
-    constant PRINTABLE_END   : natural := 127;
-    constant PRINTABLE_COUNT : natural := PRINTABLE_END - PRINTABLE_START + 1;
-
-    function printable(index : natural) return natural is
-    begin
-        return PRINTABLE_START + index;
-    end function;
-
+    signal ram_s         : text_ram_t;
 begin
     clk_gen_0:
         clk_gen
@@ -223,7 +234,8 @@ begin
 
     comb :
 
-    process(reset, vga_out_s, char_s, glyph_s, colour_s, tile_x_s, tile_y_s, offset_x_s, offset_y_s)
+    process(reset, vga_out_s, char_s, glyph_s, colour_s,
+            tile_x_s, tile_y_s, offset_x_s, offset_y_s, input)
     begin
         tile_x_s   <= vga_out_s.pix_x / TILE_WIDTH;
         tile_y_s   <= vga_out_s.pix_y / TILE_HEIGHT;
@@ -233,8 +245,8 @@ begin
         output_next_s.hs <= vga_out_s.hs;
         output_next_s.vs <= vga_out_s.vs;
 
-        char_s <= printable((tile_y_s * TILE_WIDTH + tile_x_s) mod PRINTABLE_COUNT);
-
+        -- char_s <= (tile_y_s * TILE_WIDTH + tile_x_s) mod PRINTABLE_COUNT);
+        char_s  <= ram_s(tile_y_s)(tile_x_s);
         glyph_s <= FONT_ROM(char_s);
 
         if get_glyph_value(glyph_s, offset_x_s, offset_y_s) = '1' then
@@ -253,9 +265,11 @@ begin
     seq :
     process(clk, reset)
     begin
-        if reset = '1' then
-        elsif rising_edge(clk) then
+        if rising_edge(clk) then
             output  <= output_next_s;
+            if input.we = '1' then
+                ram_s(input.wy)(input.wx) <= input.wd;
+            end if;
         end if;
     end process;
 end rtl;

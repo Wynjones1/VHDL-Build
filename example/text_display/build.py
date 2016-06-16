@@ -13,6 +13,7 @@ ucf = {
 }
 
 files = [
+    "./external/sd.vhd",
     "./clock_gen.vhd",
     "./vga.vhd",
     "./text_area.vhd",
