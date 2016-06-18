@@ -14,15 +14,17 @@ ucf = {
 
 files = [
     "./external/sd.vhd",
+    "./display_comp.vhd",
     "./clock_gen.vhd",
     "./vga.vhd",
+    "./text_ram.vhd",
     "./text_area.vhd",
     "./top.vhd",
 ]
 
 testbenches = [
-   # "./testbenches/tb.vhd"
-    "./testbenches/vga_tb.vhd"
+    "./testbenches/tb.vhd"
+   # "./testbenches/vga_tb.vhd"
 ]
 
 proj = Project(
